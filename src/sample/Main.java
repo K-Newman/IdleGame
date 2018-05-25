@@ -6,12 +6,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-/* TODO list
- * Add mages
- * Add things to spend rebirth points on
- * Add "side scroller" champion screen
- *  equipment / monsters / drop tables
- * Work on aesthetics*/
+/* TODO Add mages
+ * TODO Add things to spend rebirth points on
+ * TODO Add "side scroller" champion screen
+ * TODO equipment / monsters / drop tables
+ * TODO Work on aesthetics*/
 
 public class Main extends Application {
 

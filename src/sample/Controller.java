@@ -6,6 +6,7 @@ import javafx.animation.Timeline;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressIndicator;
+import javafx.scene.image.ImageView;
 import javafx.util.Duration;
 
 import java.net.URL;
@@ -17,6 +18,7 @@ public class Controller implements Initializable {
     public ProgressIndicator fighterBar;
     public ProgressIndicator mageBar;
 
+
     public Label archerCountLabel;
     public Label fighterCountLabel;
     public Label mageCountLabel;
@@ -27,6 +29,10 @@ public class Controller implements Initializable {
     public Label siegeMages;
     public Label siegeLabel;
     public Label rebirthSiegeCount;
+    public ImageView I00,I01,I02,I03,I04,I05,I06,I07,I08,I09,I0x;
+    public ImageView I10,I11,I12,I13,I14,I15,I16,I17,I18,I19,I1x;
+    public ImageView I20,I21,I22,I23,I24,I25,I26,I27,I28,I29,I2x;
+    public ImageView I30,I31,I32,I33,I34,I35,I36,I37,I38,I39,I3x;
 
     ArrayList<Archer> Archers = new ArrayList<>();
     ArrayList<Fighter> Fighters = new ArrayList<>();
@@ -148,6 +154,7 @@ public class Controller implements Initializable {
     }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
         theGame();
     }
 
@@ -157,7 +164,7 @@ public class Controller implements Initializable {
     }
 
     public void attackButton(){
-        //First round siege archers attack sieging fighters and archers
+        //First phase siege archers attack sieging fighters and archers
         if(siegeA * siegeArcherDamage>=fighterHealth*fighterCount){
             fighterCount = 0;
             if((siegeA*siegeArcherDamage) >= 2*(fighterHealth*fighterCount)){

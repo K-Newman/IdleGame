@@ -19,7 +19,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         FXMLLoader loader = new FXMLLoader();
-        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("TheGameLayout.fxml"));
         controller = loader.getController();
         primaryStage.setScene(new Scene(root, 1000, 800));
         primaryStage.show();

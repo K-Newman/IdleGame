@@ -1,0 +1,13 @@
+.root{
+    -fx-background-color: #F0F0F0;
+}
+
+.StackPane{
+    -fx-border-color: grey;
+    -fx-background-color: #D8D8D8;
+}
+
+.StackWrapper{
+    -fx-border-color: grey;
+    -fx-background-color: #ffe066;
+}

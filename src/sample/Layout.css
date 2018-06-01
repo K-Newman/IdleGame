@@ -11,3 +11,25 @@
     -fx-border-color: grey;
     -fx-background-color: #ffe066;
 }
+
+.FighterProgressIndicator{
+    -fx-progress-color: blue;
+}
+
+.ArcherProgressIndicator{
+    -fx-progress-color: green;
+}
+
+.MageProgressIndicator{
+    -fx-progress-color: red;
+}
+
+#Progress-indicator .bar{
+    background: red;
+}
+
+.LabelTraining{
+    -fx-background-color: white;
+    -fx-border-width: 1;
+    -fx-border-color: black;
+}

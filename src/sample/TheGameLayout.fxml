@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.StackPane?>
@@ -21,9 +24,9 @@
         <tabs>
           <Tab text="Current Theater">
             <content>
-              <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0" styleClass="root">
+              <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" styleClass="root">
                      <children>
-                        <StackPane layoutX="307.0" layoutY="163.0" prefHeight="237.0" prefWidth="387.0" styleClass="StackPane">
+                        <StackPane layoutX="767.0" layoutY="195.0" prefHeight="237.0" prefWidth="219.0" styleClass="StackPane">
                            <children>
                               <Pane prefHeight="200.0" prefWidth="200.0">
                                  <children>
@@ -41,6 +44,323 @@
                               </Pane>
                            </children>
                         </StackPane>
+                        <StackPane layoutX="49.0" layoutY="314.0" prefHeight="190.0" prefWidth="542.0" styleClass="StackPane">
+                           <children>
+                              <VBox prefHeight="186.0" prefWidth="448.0">
+                                 <children>
+                                    <HBox prefHeight="0.0" prefWidth="352.0">
+                                       <children>
+                                          <StackPane>
+                                             <children>
+                                                <ProgressBar fx:id="ftraining1PB" prefHeight="31.0" prefWidth="200.0" progress="0.0" styleClass="FighterProgressIndicator" stylesheets="@Layout.css" />
+                                                <Label text="Aerobic Activity" />
+                                             </children>
+                                          </StackPane>
+                                          <Label fx:id="ftrain1comp" prefHeight="31.0" prefWidth="85.0" styleClass="LabelTraining">
+                                             <HBox.margin>
+                                                <Insets left="5.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <Pane prefHeight="31.0" prefWidth="5.0" />
+                                          <Button mnemonicParsing="false" onAction="#training1PlusButtonClick" text="+" />
+                                          <Button mnemonicParsing="false" onAction="#training1MinusButtonClick" text="-" />
+                                          <Button mnemonicParsing="false" onAction="#fiftyPercent1ButtonClick" text="50%" />
+                                          <Button mnemonicParsing="false" onAction="#training1CapButtonClick" text="Cap" />
+                                          <Label fx:id="ftrain1Count" prefHeight="31.0" prefWidth="88.0" styleClass="LabelTraining" text="0">
+                                             <HBox.margin>
+                                                <Insets left="5.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                    <HBox layoutX="10.0" layoutY="10.0" prefHeight="0.0" prefWidth="352.0">
+                                       <children>
+                                          <StackPane>
+                                             <children>
+                                                <ProgressBar fx:id="ftraining2PB" prefHeight="31.0" prefWidth="200.0" progress="0.0" styleClass="FighterProgressIndicator" />
+                                                <Label text="Extreme Conditioning" />
+                                             </children>
+                                          </StackPane>
+                                          <Label fx:id="ftrain2comp" prefHeight="31.0" prefWidth="85.0" styleClass="LabelTraining">
+                                             <HBox.margin>
+                                                <Insets left="5.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <Pane prefHeight="31.0" prefWidth="5.0" />
+                                          <Button mnemonicParsing="false" text="+" />
+                                          <Button mnemonicParsing="false" text="-" />
+                                          <Button mnemonicParsing="false" text="50%" />
+                                          <Button mnemonicParsing="false" text="Cap" />
+                                          <Label fx:id="ftrain2Count" prefHeight="31.0" prefWidth="88.0" styleClass="LabelTraining" text="0">
+                                             <HBox.margin>
+                                                <Insets left="5.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                    <HBox layoutX="10.0" layoutY="41.0" prefHeight="0.0" prefWidth="352.0">
+                                       <children>
+                                          <StackPane>
+                                             <children>
+                                                <ProgressBar fx:id="ftraining3PB" prefHeight="31.0" prefWidth="200.0" progress="0.0" styleClass="FighterProgressIndicator" />
+                                                <Label text="Weapon Practice" />
+                                             </children>
+                                          </StackPane>
+                                          <Label fx:id="ftrain3comp" prefHeight="31.0" prefWidth="85.0" styleClass="LabelTraining">
+                                             <HBox.margin>
+                                                <Insets left="5.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <Pane prefHeight="31.0" prefWidth="5.0" />
+                                          <Button mnemonicParsing="false" text="+" />
+                                          <Button mnemonicParsing="false" text="-" />
+                                          <Button mnemonicParsing="false" text="50%" />
+                                          <Button mnemonicParsing="false" text="Cap" />
+                                          <Label fx:id="ftrain3Count" prefHeight="31.0" prefWidth="88.0" styleClass="LabelTraining" text="0">
+                                             <HBox.margin>
+                                                <Insets left="5.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                    <HBox layoutX="10.0" layoutY="72.0" prefHeight="0.0" prefWidth="352.0">
+                                       <children>
+                                          <StackPane>
+                                             <children>
+                                                <ProgressBar fx:id="ftraining4PB" prefHeight="31.0" prefWidth="200.0" progress="0.0" styleClass="FighterProgressIndicator" />
+                                                <Label text="Distance Practice" />
+                                             </children>
+                                          </StackPane>
+                                          <Label fx:id="ftrain4comp" prefHeight="31.0" prefWidth="85.0" styleClass="LabelTraining">
+                                             <HBox.margin>
+                                                <Insets left="5.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <Pane prefHeight="31.0" prefWidth="5.0" />
+                                          <Button mnemonicParsing="false" text="+" />
+                                          <Button mnemonicParsing="false" text="-" />
+                                          <Button mnemonicParsing="false" text="50%" />
+                                          <Button mnemonicParsing="false" text="Cap" />
+                                          <Label fx:id="ftrain4Count" prefHeight="31.0" prefWidth="88.0" styleClass="LabelTraining" text="0">
+                                             <HBox.margin>
+                                                <Insets left="5.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                    <HBox layoutX="10.0" layoutY="103.0" prefHeight="0.0" prefWidth="352.0">
+                                       <children>
+                                          <StackPane>
+                                             <children>
+                                                <ProgressBar fx:id="ftraining5PB" prefHeight="31.0" prefWidth="200.0" progress="0.0" styleClass="FighterProgressIndicator" />
+                                                <Label text="Predictive Shooting" />
+                                             </children>
+                                          </StackPane>
+                                          <Label fx:id="ftrain5comp" prefHeight="31.0" prefWidth="85.0" styleClass="LabelTraining">
+                                             <HBox.margin>
+                                                <Insets left="5.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <Pane prefHeight="31.0" prefWidth="5.0" />
+                                          <Button mnemonicParsing="false" text="+" />
+                                          <Button mnemonicParsing="false" text="-" />
+                                          <Button mnemonicParsing="false" text="50%" />
+                                          <Button mnemonicParsing="false" text="Cap" />
+                                          <Label fx:id="ftrain5Count" prefHeight="31.0" prefWidth="88.0" styleClass="LabelTraining" text="0">
+                                             <HBox.margin>
+                                                <Insets left="5.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                    <HBox layoutX="10.0" layoutY="134.0" prefHeight="0.0" prefWidth="352.0">
+                                       <children>
+                                          <StackPane>
+                                             <children>
+                                                <ProgressBar fx:id="ftraining6PB" prefHeight="31.0" prefWidth="200.0" progress="0.0" styleClass="FighterProgressIndicator" />
+                                                <Label text="Blunt Arrow Dueling" />
+                                             </children>
+                                          </StackPane>
+                                          <Label fx:id="ftrain6comp" prefHeight="31.0" prefWidth="85.0" styleClass="LabelTraining">
+                                             <HBox.margin>
+                                                <Insets left="5.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <Pane prefHeight="31.0" prefWidth="5.0" />
+                                          <Button mnemonicParsing="false" text="+" />
+                                          <Button mnemonicParsing="false" text="-" />
+                                          <Button mnemonicParsing="false" text="50%" />
+                                          <Button mnemonicParsing="false" text="Cap" />
+                                          <Label fx:id="ftrain6Count" prefHeight="31.0" prefWidth="88.0" styleClass="LabelTraining" text="0">
+                                             <HBox.margin>
+                                                <Insets left="5.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </StackPane>
+                        <TextField fx:id="countQuant" layoutX="637.0" layoutY="125.0" prefHeight="31.0" prefWidth="89.0" />
+                        <StackPane layoutX="49.0" layoutY="76.0" prefHeight="190.0" prefWidth="542.0" styleClass="StackPane">
+                           <children>
+                              <VBox prefHeight="186.0" prefWidth="448.0">
+                                 <children>
+                                    <HBox prefHeight="0.0" prefWidth="352.0">
+                                       <children>
+                                          <StackPane>
+                                             <children>
+                                                <ProgressBar fx:id="atraining1PB" prefHeight="31.0" prefWidth="200.0" progress="0.0" styleClass="FighterProgressIndicator" stylesheets="@Layout.css" />
+                                                <Label text="Aerobic Activity" />
+                                             </children>
+                                          </StackPane>
+                                          <Label fx:id="atrain1comp" prefHeight="31.0" prefWidth="85.0" styleClass="LabelTraining" text="0">
+                                             <HBox.margin>
+                                                <Insets left="5.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <Pane prefHeight="31.0" prefWidth="5.0" />
+                                          <Button mnemonicParsing="false" onAction="#training1PlusButtonClick" text="+" />
+                                          <Button mnemonicParsing="false" onAction="#training1MinusButtonClick" text="-" />
+                                          <Button mnemonicParsing="false" onAction="#fiftyPercent1ButtonClick" text="50%" />
+                                          <Button mnemonicParsing="false" text="Cap" />
+                                          <Label fx:id="atrain1Count" prefHeight="31.0" prefWidth="88.0" styleClass="LabelTraining" text="0">
+                                             <HBox.margin>
+                                                <Insets left="5.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                    <HBox layoutX="10.0" layoutY="10.0" prefHeight="0.0" prefWidth="352.0">
+                                       <children>
+                                          <StackPane>
+                                             <children>
+                                                <ProgressBar fx:id="atraining2PB" prefHeight="31.0" prefWidth="200.0" progress="0.0" styleClass="FighterProgressIndicator" />
+                                                <Label text="Extreme Conditioning" />
+                                             </children>
+                                          </StackPane>
+                                          <Label fx:id="atrain2comp" prefHeight="31.0" prefWidth="85.0" styleClass="LabelTraining">
+                                             <HBox.margin>
+                                                <Insets left="5.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <Pane prefHeight="31.0" prefWidth="5.0" />
+                                          <Button mnemonicParsing="false" text="+" />
+                                          <Button mnemonicParsing="false" text="-" />
+                                          <Button mnemonicParsing="false" text="50%" />
+                                          <Button mnemonicParsing="false" text="Cap" />
+                                          <Label fx:id="atrain2Count" prefHeight="31.0" prefWidth="88.0" styleClass="LabelTraining" text="0">
+                                             <HBox.margin>
+                                                <Insets left="5.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                    <HBox layoutX="10.0" layoutY="41.0" prefHeight="0.0" prefWidth="352.0">
+                                       <children>
+                                          <StackPane>
+                                             <children>
+                                                <ProgressBar fx:id="atraining3PB" prefHeight="31.0" prefWidth="200.0" progress="0.0" styleClass="FighterProgressIndicator" />
+                                                <Label text="Weapon Practice" />
+                                             </children>
+                                          </StackPane>
+                                          <Label fx:id="atrain3comp" prefHeight="31.0" prefWidth="85.0" styleClass="LabelTraining">
+                                             <HBox.margin>
+                                                <Insets left="5.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <Pane prefHeight="31.0" prefWidth="5.0" />
+                                          <Button mnemonicParsing="false" text="+" />
+                                          <Button mnemonicParsing="false" text="-" />
+                                          <Button mnemonicParsing="false" text="50%" />
+                                          <Button mnemonicParsing="false" text="Cap" />
+                                          <Label fx:id="atrain3Count" prefHeight="31.0" prefWidth="88.0" styleClass="LabelTraining" text="0">
+                                             <HBox.margin>
+                                                <Insets left="5.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                    <HBox layoutX="10.0" layoutY="72.0" prefHeight="0.0" prefWidth="352.0">
+                                       <children>
+                                          <StackPane>
+                                             <children>
+                                                <ProgressBar fx:id="atraining4PB" prefHeight="31.0" prefWidth="200.0" progress="0.0" styleClass="FighterProgressIndicator" />
+                                                <Label text="Strength Training" />
+                                             </children>
+                                          </StackPane>
+                                          <Label fx:id="atrain4comp" prefHeight="31.0" prefWidth="85.0" styleClass="LabelTraining">
+                                             <HBox.margin>
+                                                <Insets left="5.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <Pane prefHeight="31.0" prefWidth="5.0" />
+                                          <Button mnemonicParsing="false" text="+" />
+                                          <Button mnemonicParsing="false" text="-" />
+                                          <Button mnemonicParsing="false" text="50%" />
+                                          <Button mnemonicParsing="false" text="Cap" />
+                                          <Label fx:id="atrain4Count" prefHeight="31.0" prefWidth="88.0" styleClass="LabelTraining" text="0">
+                                             <HBox.margin>
+                                                <Insets left="5.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                    <HBox layoutX="10.0" layoutY="103.0" prefHeight="0.0" prefWidth="352.0">
+                                       <children>
+                                          <StackPane>
+                                             <children>
+                                                <ProgressBar fx:id="atraining5PB" prefHeight="31.0" prefWidth="200.0" progress="0.0" styleClass="FighterProgressIndicator" />
+                                                <Label text="Combat Theory" />
+                                             </children>
+                                          </StackPane>
+                                          <Label fx:id="atrain5comp" prefHeight="31.0" prefWidth="85.0" styleClass="LabelTraining">
+                                             <HBox.margin>
+                                                <Insets left="5.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <Pane prefHeight="31.0" prefWidth="5.0" />
+                                          <Button mnemonicParsing="false" text="+" />
+                                          <Button mnemonicParsing="false" text="-" />
+                                          <Button mnemonicParsing="false" text="50%" />
+                                          <Button mnemonicParsing="false" text="Cap" />
+                                          <Label fx:id="atrain5Count" prefHeight="31.0" prefWidth="88.0" styleClass="LabelTraining" text="0">
+                                             <HBox.margin>
+                                                <Insets left="5.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                    <HBox layoutX="10.0" layoutY="134.0" prefHeight="0.0" prefWidth="352.0">
+                                       <children>
+                                          <StackPane>
+                                             <children>
+                                                <ProgressBar fx:id="atraining6PB" prefHeight="31.0" prefWidth="200.0" progress="0.0" styleClass="FighterProgressIndicator" />
+                                                <Label text="Full Contact Sparing" />
+                                             </children>
+                                          </StackPane>
+                                          <Label fx:id="atrain6comp" prefHeight="31.0" prefWidth="85.0" styleClass="LabelTraining">
+                                             <HBox.margin>
+                                                <Insets left="5.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <Pane prefHeight="31.0" prefWidth="5.0" />
+                                          <Button mnemonicParsing="false" text="+" />
+                                          <Button mnemonicParsing="false" text="-" />
+                                          <Button mnemonicParsing="false" text="50%" />
+                                          <Button mnemonicParsing="false" text="Cap" />
+                                          <Label fx:id="atrain6Count" prefHeight="31.0" prefWidth="88.0" styleClass="LabelTraining" text="0">
+                                             <HBox.margin>
+                                                <Insets left="5.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </StackPane>
                      </children>
                   </AnchorPane>
             </content>
@@ -49,7 +369,7 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="root">
                      <children>
-                        <Button layoutX="417.0" layoutY="131.0" mnemonicParsing="false" text="Start a new Campaign" />
+                        <Button layoutX="417.0" layoutY="131.0" mnemonicParsing="false" onAction="#rebirthButton" text="Start a new Campaign" />
                         <Label layoutX="202.0" layoutY="24.0" prefHeight="96.0" prefWidth="597.0" text="Start a new campaign on a different front.  Some of the progress made on this front will aid you in your future battles.  The camps, villages, towns, castles, etc that you have sieged can be converted into training camps, research facilities, arcane exploratories, etc to make your future battles more decisive.  Troop counts, spoils of war, etc will be left behind." textAlignment="JUSTIFY" wrapText="true" />
                      </children>
                   </AnchorPane>
@@ -310,57 +630,304 @@
                                           </GridPane>
                                        </content>
                                     </Tab>
+                                    <Tab closable="false" text="Inventory 2">
+                                       <content>
+                                          <GridPane prefHeight="243.0" prefWidth="947.0">
+                                             <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                             </columnConstraints>
+                                             <rowConstraints>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                             </rowConstraints>
+                                             <children>
+                                                <StackPane prefHeight="150.0" prefWidth="200.0" styleClass="StackPane" stylesheets="@Layout.css">
+                                                   <children>
+                                                      <ImageView fx:id="I00b" fitHeight="60.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true" />
+                                                   </children>
+                                                </StackPane>
+                                                <StackPane prefHeight="150.0" prefWidth="200.0" styleClass="StackPane" stylesheets="@Layout.css" GridPane.columnIndex="1">
+                                                   <children>
+                                                      <ImageView fx:id="I01b" fitHeight="60.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true" />
+                                                   </children>
+                                                </StackPane>
+                                                <StackPane prefHeight="150.0" prefWidth="200.0" styleClass="StackPane" stylesheets="@Layout.css" GridPane.columnIndex="2">
+                                                   <children>
+                                                      <ImageView fx:id="I02b" fitHeight="60.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true" />
+                                                   </children>
+                                                </StackPane>
+                                                <StackPane prefHeight="150.0" prefWidth="200.0" styleClass="StackPane" stylesheets="@Layout.css" GridPane.columnIndex="3">
+                                                   <children>
+                                                      <ImageView fx:id="I03b" fitHeight="60.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true" />
+                                                   </children>
+                                                </StackPane>
+                                                <StackPane layoutX="268.0" layoutY="10.0" prefHeight="150.0" prefWidth="200.0" styleClass="StackPane" stylesheets="@Layout.css" GridPane.columnIndex="4">
+                                                   <children>
+                                                      <ImageView fx:id="I04b" fitHeight="60.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true" />
+                                                   </children>
+                                                </StackPane>
+                                                <StackPane layoutX="354.0" layoutY="10.0" prefHeight="150.0" prefWidth="200.0" styleClass="StackPane" stylesheets="@Layout.css" GridPane.columnIndex="5">
+                                                   <children>
+                                                      <ImageView fx:id="I05b" fitHeight="60.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true" />
+                                                   </children>
+                                                </StackPane>
+                                                <StackPane layoutX="440.0" layoutY="10.0" prefHeight="150.0" prefWidth="200.0" styleClass="StackPane" stylesheets="@Layout.css" GridPane.columnIndex="6">
+                                                   <children>
+                                                      <ImageView fx:id="I06b" fitHeight="60.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true" />
+                                                   </children>
+                                                </StackPane>
+                                                <StackPane layoutX="526.0" layoutY="10.0" prefHeight="150.0" prefWidth="200.0" styleClass="StackPane" stylesheets="@Layout.css" GridPane.columnIndex="7">
+                                                   <children>
+                                                      <ImageView fx:id="I07b" fitHeight="60.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true" />
+                                                   </children>
+                                                </StackPane>
+                                                <StackPane prefHeight="150.0" prefWidth="200.0" styleClass="StackPane" stylesheets="@Layout.css" GridPane.columnIndex="8">
+                                                   <children>
+                                                      <ImageView fx:id="I08b" fitHeight="60.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true" />
+                                                   </children>
+                                                </StackPane>
+                                                <StackPane prefHeight="150.0" prefWidth="200.0" styleClass="StackPane" stylesheets="@Layout.css" GridPane.columnIndex="9">
+                                                   <children>
+                                                      <ImageView fx:id="I09b" fitHeight="60.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true" />
+                                                   </children>
+                                                </StackPane>
+                                                <StackPane prefHeight="150.0" prefWidth="200.0" styleClass="StackPane" stylesheets="@Layout.css" GridPane.columnIndex="10">
+                                                   <children>
+                                                      <ImageView fx:id="I0xb" fitHeight="60.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true" />
+                                                   </children>
+                                                </StackPane>
+                                                <StackPane layoutX="10.0" layoutY="10.0" prefHeight="150.0" prefWidth="200.0" styleClass="StackPane" stylesheets="@Layout.css" GridPane.rowIndex="1">
+                                                   <children>
+                                                      <ImageView fx:id="I10b" fitHeight="60.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true" />
+                                                   </children>
+                                                </StackPane>
+                                                <StackPane layoutX="870.0" layoutY="10.0" prefHeight="150.0" prefWidth="200.0" styleClass="StackPane" stylesheets="@Layout.css" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                   <children>
+                                                      <ImageView fx:id="I11b" fitHeight="60.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true" />
+                                                   </children>
+                                                </StackPane>
+                                                <StackPane layoutX="96.0" layoutY="71.0" prefHeight="150.0" prefWidth="200.0" styleClass="StackPane" stylesheets="@Layout.css" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                                   <children>
+                                                      <ImageView fx:id="I12b" fitHeight="60.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true" />
+                                                   </children>
+                                                </StackPane>
+                                                <StackPane layoutX="182.0" layoutY="71.0" prefHeight="150.0" prefWidth="200.0" styleClass="StackPane" stylesheets="@Layout.css" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                                                   <children>
+                                                      <ImageView fx:id="I13b" fitHeight="60.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true" />
+                                                   </children>
+                                                </StackPane>
+                                                <StackPane layoutX="268.0" layoutY="71.0" prefHeight="150.0" prefWidth="200.0" styleClass="StackPane" stylesheets="@Layout.css" GridPane.columnIndex="4" GridPane.rowIndex="1">
+                                                   <children>
+                                                      <ImageView fx:id="I14b" fitHeight="60.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true" />
+                                                   </children>
+                                                </StackPane>
+                                                <StackPane layoutX="354.0" layoutY="71.0" prefHeight="150.0" prefWidth="200.0" styleClass="StackPane" stylesheets="@Layout.css" GridPane.columnIndex="5" GridPane.rowIndex="1">
+                                                   <children>
+                                                      <ImageView fx:id="I15b" fitHeight="60.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true" />
+                                                   </children>
+                                                </StackPane>
+                                                <StackPane layoutX="440.0" layoutY="71.0" prefHeight="150.0" prefWidth="200.0" styleClass="StackPane" stylesheets="@Layout.css" GridPane.columnIndex="6" GridPane.rowIndex="1">
+                                                   <children>
+                                                      <ImageView fx:id="I16b" fitHeight="60.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true" />
+                                                   </children>
+                                                </StackPane>
+                                                <StackPane layoutX="526.0" layoutY="71.0" prefHeight="150.0" prefWidth="200.0" styleClass="StackPane" stylesheets="@Layout.css" GridPane.columnIndex="7" GridPane.rowIndex="1">
+                                                   <children>
+                                                      <ImageView fx:id="I17b" fitHeight="60.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true" />
+                                                   </children>
+                                                </StackPane>
+                                                <StackPane layoutX="612.0" layoutY="71.0" prefHeight="150.0" prefWidth="200.0" styleClass="StackPane" stylesheets="@Layout.css" GridPane.columnIndex="8" GridPane.rowIndex="1">
+                                                   <children>
+                                                      <ImageView fx:id="I18b" fitHeight="60.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true" />
+                                                   </children>
+                                                </StackPane>
+                                                <StackPane layoutX="698.0" layoutY="71.0" prefHeight="150.0" prefWidth="200.0" styleClass="StackPane" stylesheets="@Layout.css" GridPane.columnIndex="9" GridPane.rowIndex="1">
+                                                   <children>
+                                                      <ImageView fx:id="I19b" fitHeight="60.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true" />
+                                                   </children>
+                                                </StackPane>
+                                                <StackPane layoutX="784.0" layoutY="71.0" prefHeight="150.0" prefWidth="200.0" styleClass="StackPane" stylesheets="@Layout.css" GridPane.columnIndex="10" GridPane.rowIndex="1">
+                                                   <children>
+                                                      <ImageView fx:id="I1xb" fitHeight="60.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true" />
+                                                   </children>
+                                                </StackPane>
+                                                <StackPane layoutX="870.0" layoutY="71.0" prefHeight="150.0" prefWidth="200.0" styleClass="StackPane" stylesheets="@Layout.css" GridPane.rowIndex="2">
+                                                   <children>
+                                                      <ImageView fx:id="I20b" fitHeight="60.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true" />
+                                                   </children>
+                                                </StackPane>
+                                                <StackPane layoutX="10.0" layoutY="132.0" prefHeight="150.0" prefWidth="200.0" styleClass="StackPane" stylesheets="@Layout.css" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                                   <children>
+                                                      <ImageView fx:id="I21b" fitHeight="60.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true" />
+                                                   </children>
+                                                </StackPane>
+                                                <StackPane layoutX="96.0" layoutY="132.0" prefHeight="150.0" prefWidth="200.0" styleClass="StackPane" stylesheets="@Layout.css" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                                   <children>
+                                                      <ImageView fx:id="I22b" fitHeight="60.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true" />
+                                                   </children>
+                                                </StackPane>
+                                                <StackPane layoutX="182.0" layoutY="132.0" prefHeight="150.0" prefWidth="200.0" styleClass="StackPane" stylesheets="@Layout.css" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                                                   <children>
+                                                      <ImageView fx:id="I23b" fitHeight="60.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true" />
+                                                   </children>
+                                                </StackPane>
+                                                <StackPane layoutX="268.0" layoutY="132.0" prefHeight="150.0" prefWidth="200.0" styleClass="StackPane" stylesheets="@Layout.css" GridPane.columnIndex="4" GridPane.rowIndex="2">
+                                                   <children>
+                                                      <ImageView fx:id="I24b" fitHeight="60.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true" />
+                                                   </children>
+                                                </StackPane>
+                                                <StackPane layoutX="354.0" layoutY="132.0" prefHeight="150.0" prefWidth="200.0" styleClass="StackPane" stylesheets="@Layout.css" GridPane.columnIndex="5" GridPane.rowIndex="2">
+                                                   <children>
+                                                      <ImageView fx:id="I25b" fitHeight="60.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true" />
+                                                   </children>
+                                                </StackPane>
+                                                <StackPane layoutX="440.0" layoutY="132.0" prefHeight="150.0" prefWidth="200.0" styleClass="StackPane" stylesheets="@Layout.css" GridPane.columnIndex="6" GridPane.rowIndex="2">
+                                                   <children>
+                                                      <ImageView fx:id="I26b" fitHeight="60.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true" />
+                                                   </children>
+                                                </StackPane>
+                                                <StackPane layoutX="526.0" layoutY="132.0" prefHeight="150.0" prefWidth="200.0" styleClass="StackPane" stylesheets="@Layout.css" GridPane.columnIndex="7" GridPane.rowIndex="2">
+                                                   <children>
+                                                      <ImageView fx:id="I27b" fitHeight="60.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true" />
+                                                   </children>
+                                                </StackPane>
+                                                <StackPane layoutX="612.0" layoutY="132.0" prefHeight="150.0" prefWidth="200.0" styleClass="StackPane" stylesheets="@Layout.css" GridPane.columnIndex="8" GridPane.rowIndex="2">
+                                                   <children>
+                                                      <ImageView fx:id="I28b" fitHeight="60.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true" />
+                                                   </children>
+                                                </StackPane>
+                                                <StackPane layoutX="698.0" layoutY="132.0" prefHeight="150.0" prefWidth="200.0" styleClass="StackPane" stylesheets="@Layout.css" GridPane.columnIndex="9" GridPane.rowIndex="2">
+                                                   <children>
+                                                      <ImageView fx:id="I29b" fitHeight="60.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true" />
+                                                   </children>
+                                                </StackPane>
+                                                <StackPane layoutX="784.0" layoutY="132.0" prefHeight="150.0" prefWidth="200.0" styleClass="StackPane" stylesheets="@Layout.css" GridPane.columnIndex="10" GridPane.rowIndex="2">
+                                                   <children>
+                                                      <ImageView fx:id="I2xb" fitHeight="60.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true" />
+                                                   </children>
+                                                </StackPane>
+                                                <StackPane layoutX="870.0" layoutY="132.0" prefHeight="150.0" prefWidth="200.0" styleClass="StackPane" stylesheets="@Layout.css" GridPane.rowIndex="3">
+                                                   <children>
+                                                      <ImageView fx:id="I30b" fitHeight="60.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true" />
+                                                   </children>
+                                                </StackPane>
+                                                <StackPane layoutX="10.0" layoutY="192.0" prefHeight="150.0" prefWidth="200.0" styleClass="StackPane" stylesheets="@Layout.css" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                                   <children>
+                                                      <ImageView fx:id="I31b" fitHeight="60.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true" />
+                                                   </children>
+                                                </StackPane>
+                                                <StackPane layoutX="96.0" layoutY="192.0" prefHeight="150.0" prefWidth="200.0" styleClass="StackPane" stylesheets="@Layout.css" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                                                   <children>
+                                                      <ImageView fx:id="I32b" fitHeight="60.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true" />
+                                                   </children>
+                                                </StackPane>
+                                                <StackPane layoutX="182.0" layoutY="192.0" prefHeight="150.0" prefWidth="200.0" styleClass="StackPane" stylesheets="@Layout.css" GridPane.columnIndex="3" GridPane.rowIndex="3">
+                                                   <children>
+                                                      <ImageView fx:id="I33b" fitHeight="60.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true" />
+                                                   </children>
+                                                </StackPane>
+                                                <StackPane layoutX="268.0" layoutY="192.0" prefHeight="150.0" prefWidth="200.0" styleClass="StackPane" stylesheets="@Layout.css" GridPane.columnIndex="4" GridPane.rowIndex="3">
+                                                   <children>
+                                                      <ImageView fx:id="I34b" fitHeight="60.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true" />
+                                                   </children>
+                                                </StackPane>
+                                                <StackPane layoutX="354.0" layoutY="192.0" prefHeight="150.0" prefWidth="200.0" styleClass="StackPane" stylesheets="@Layout.css" GridPane.columnIndex="5" GridPane.rowIndex="3">
+                                                   <children>
+                                                      <ImageView fx:id="I35b" fitHeight="60.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true" />
+                                                   </children>
+                                                </StackPane>
+                                                <StackPane layoutX="440.0" layoutY="192.0" prefHeight="150.0" prefWidth="200.0" styleClass="StackPane" stylesheets="@Layout.css" GridPane.columnIndex="6" GridPane.rowIndex="3">
+                                                   <children>
+                                                      <ImageView fx:id="I36b" fitHeight="60.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true" />
+                                                   </children>
+                                                </StackPane>
+                                                <StackPane layoutX="526.0" layoutY="192.0" prefHeight="150.0" prefWidth="200.0" styleClass="StackPane" stylesheets="@Layout.css" GridPane.columnIndex="7" GridPane.rowIndex="3">
+                                                   <children>
+                                                      <ImageView fx:id="I37b" fitHeight="60.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true" />
+                                                   </children>
+                                                </StackPane>
+                                                <StackPane layoutX="612.0" layoutY="192.0" prefHeight="150.0" prefWidth="200.0" styleClass="StackPane" stylesheets="@Layout.css" GridPane.columnIndex="8" GridPane.rowIndex="3">
+                                                   <children>
+                                                      <ImageView fx:id="I38b" fitHeight="60.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true" />
+                                                   </children>
+                                                </StackPane>
+                                                <StackPane layoutX="698.0" layoutY="192.0" prefHeight="150.0" prefWidth="200.0" styleClass="StackPane" stylesheets="@Layout.css" GridPane.columnIndex="9" GridPane.rowIndex="3">
+                                                   <children>
+                                                      <ImageView fx:id="I39b" fitHeight="60.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true" />
+                                                   </children>
+                                                </StackPane>
+                                                <StackPane layoutX="784.0" layoutY="192.0" prefHeight="150.0" prefWidth="200.0" styleClass="StackPane" stylesheets="@Layout.css" GridPane.columnIndex="10" GridPane.rowIndex="3">
+                                                   <children>
+                                                      <ImageView fx:id="I3xb" fitHeight="60.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true" />
+                                                   </children>
+                                                </StackPane>
+                                             </children>
+                                          </GridPane>
+                                       </content>
+                                    </Tab>
                                  </tabs>
                               </TabPane>
                            </children>
                         </StackPane>
-                        <StackPane layoutX="26.0" layoutY="14.0" prefHeight="301.0" prefWidth="346.0" styleClass="StackWrapper" stylesheets="@Layout.css">
+                        <StackPane layoutX="31.0" layoutY="14.0" prefHeight="301.0" prefWidth="331.0" styleClass="StackWrapper" stylesheets="@Layout.css">
                            <children>
                               <Pane prefHeight="119.0" prefWidth="344.0">
                                  <children>
-                                    <StackPane layoutX="132.0" layoutY="21.0" prefHeight="60.0" prefWidth="79.0" styleClass="StackPane" stylesheets="@Layout.css">
+                                    <StackPane layoutX="124.0" layoutY="17.0" prefHeight="60.0" prefWidth="79.0" styleClass="StackPane" stylesheets="@Layout.css">
                                        <children>
                                           <ImageView fitHeight="60.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true" />
                                           <Label text="Helm" />
                                        </children>
                                     </StackPane>
-                                    <StackPane layoutX="132.0" layoutY="89.0" prefHeight="60.0" prefWidth="79.0" styleClass="StackPane" stylesheets="@Layout.css">
+                                    <StackPane layoutX="124.0" layoutY="85.0" prefHeight="60.0" prefWidth="79.0" styleClass="StackPane" stylesheets="@Layout.css">
                                        <children>
                                           <Label text="Chest" />
                                           <ImageView fitHeight="60.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true" />
                                        </children>
                                     </StackPane>
-                                    <StackPane layoutX="132.0" layoutY="157.0" prefHeight="60.0" prefWidth="79.0" styleClass="StackPane" stylesheets="@Layout.css">
+                                    <StackPane layoutX="124.0" layoutY="153.0" prefHeight="60.0" prefWidth="79.0" styleClass="StackPane" stylesheets="@Layout.css">
                                        <children>
                                           <Label text="Legs" />
                                           <ImageView fitHeight="60.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true" />
                                        </children>
                                     </StackPane>
-                                    <StackPane layoutX="132.0" layoutY="225.0" prefHeight="60.0" prefWidth="79.0" styleClass="StackPane" stylesheets="@Layout.css">
+                                    <StackPane layoutX="124.0" layoutY="221.0" prefHeight="60.0" prefWidth="79.0" styleClass="StackPane" stylesheets="@Layout.css">
                                        <children>
                                           <Label text="Boots" />
                                           <ImageView fitHeight="60.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true" />
                                        </children>
                                     </StackPane>
-                                    <StackPane layoutX="227.0" layoutY="120.0" prefHeight="60.0" prefWidth="79.0" styleClass="StackPane" stylesheets="@Layout.css">
+                                    <StackPane layoutX="219.0" layoutY="116.0" prefHeight="60.0" prefWidth="79.0" styleClass="StackPane" stylesheets="@Layout.css">
                                        <children>
                                           <Label text="Hands" />
                                           <ImageView fitHeight="60.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true" />
                                        </children>
                                     </StackPane>
-                                    <StackPane layoutX="227.0" layoutY="34.0" prefHeight="60.0" prefWidth="79.0" styleClass="StackPane" stylesheets="@Layout.css">
+                                    <StackPane layoutX="219.0" layoutY="30.0" prefHeight="60.0" prefWidth="79.0" styleClass="StackPane" stylesheets="@Layout.css">
                                        <children>
                                           <Label text="Shoulder" />
                                           <ImageView fitHeight="60.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true" />
                                        </children>
                                     </StackPane>
-                                    <StackPane layoutX="37.0" layoutY="52.0" prefHeight="60.0" prefWidth="79.0" styleClass="StackPane" stylesheets="@Layout.css">
+                                    <StackPane layoutX="29.0" layoutY="48.0" prefHeight="60.0" prefWidth="79.0" styleClass="StackPane" stylesheets="@Layout.css">
                                        <children>
                                           <Label text="Accessory" />
                                           <ImageView fitHeight="60.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true" />
                                        </children>
                                     </StackPane>
-                                    <StackPane layoutX="227.0" layoutY="207.0" prefHeight="60.0" prefWidth="79.0" styleClass="StackPane" stylesheets="@Layout.css">
+                                    <StackPane layoutX="219.0" layoutY="203.0" prefHeight="60.0" prefWidth="79.0" styleClass="StackPane" stylesheets="@Layout.css">
                                        <children>
                                           <Label text="Weapon" />
                                           <ImageView fitHeight="60.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true" />
@@ -386,13 +953,13 @@
             </AnchorPane>
             <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="23.0" prefWidth="200.0">
                <children>
-                  <ProgressBar fx:id="fighterBar" layoutX="1.0" layoutY="2.0" prefWidth="200.0" progress="0.0" />
+                  <ProgressBar fx:id="fighterBar" layoutX="1.0" layoutY="2.0" prefWidth="200.0" progress="0.0" styleClass="FighterProgressIndicator" />
                   <Label alignment="CENTER" layoutX="75.0" layoutY="2.0" text="Fighters" />
                </children>
             </AnchorPane>
             <AnchorPane layoutX="10.0" layoutY="35.0" prefHeight="23.0" prefWidth="200.0">
                <children>
-                  <ProgressBar fx:id="mageBar" layoutX="1.0" layoutY="2.0" prefWidth="200.0" progress="0.0" />
+                  <ProgressBar fx:id="mageBar" layoutX="1.0" layoutY="2.0" prefWidth="200.0" progress="0.0" styleClass="MageProgressIndicator" stylesheets="@Layout.css" />
                   <Label alignment="CENTER" layoutX="79.0" layoutY="2.0" text="Mages" />
                </children>
             </AnchorPane>
@@ -407,7 +974,7 @@
       </VBox>
       <VBox layoutX="500.0" layoutY="14.0" prefHeight="115.0" prefWidth="316.0">
          <children>
-            <Label fx:id="spoilsofWar1" alignment="TOP_LEFT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="226.0" text="Campaign timer: " textAlignment="CENTER">
+            <Label fx:id="campaignTimer" alignment="TOP_LEFT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="317.0" text="Campaign timer: " textAlignment="CENTER">
                <font>
                   <Font size="24.0" />
                </font>

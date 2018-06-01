@@ -6,17 +6,25 @@ import javafx.animation.Timeline;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressIndicator;
+import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.util.Duration;
 
 import java.net.URL;
+import java.sql.Time;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import java.util.concurrent.TimeUnit;
 
 public class Controller implements Initializable {
     public ProgressIndicator archerBar;
     public ProgressIndicator fighterBar;
     public ProgressIndicator mageBar;
+
+    public ProgressIndicator ftraining1PB;
+    public Label ftrain1comp;
+
+    public Label ftrain1Count;
 
 
     public Label archerCountLabel;
@@ -26,13 +34,17 @@ public class Controller implements Initializable {
     public Label siegeDefense;
     public Label siegeArchers;
     public Label siegeFighters;
+
     public Label siegeMages;
     public Label siegeLabel;
     public Label rebirthSiegeCount;
+    public Label campaignTimer;
     public ImageView I00,I01,I02,I03,I04,I05,I06,I07,I08,I09,I0x;
     public ImageView I10,I11,I12,I13,I14,I15,I16,I17,I18,I19,I1x;
     public ImageView I20,I21,I22,I23,I24,I25,I26,I27,I28,I29,I2x;
     public ImageView I30,I31,I32,I33,I34,I35,I36,I37,I38,I39,I3x;
+
+    public TextField countQuant;
 
     ArrayList<Archer> Archers = new ArrayList<>();
     ArrayList<Fighter> Fighters = new ArrayList<>();
@@ -81,14 +93,24 @@ public class Controller implements Initializable {
     int siegeM = 1;
     int siegeArcherDamage = 10;
 
+    FighterTraining FT = new FighterTraining();
 
-    int gameTicker = 0;
+
+    long gameTicker = 0;
+    String gameTime;
+
+    int capFinder = 0;
+    int capCounter = 0;
 
     public Timeline startTimeline(){
+
         Timeline timeline = new Timeline(new KeyFrame(Duration.millis(20), e->{
             gameTicker++;
             aGTicker++;
             fGTicker++;
+
+            getTime(gameTicker);
+            campaignTimer.setText("Campaign timer: " + gameTime);
             //Archer bar controls
             if(archerTicker/(archerDiscount) < aGTicker){
                 aBarTicker = aBarTicker + 1 + aTickPower;
@@ -148,13 +170,17 @@ public class Controller implements Initializable {
 
             rebirthSiegeCount.setText("Current Siege Points: " + rebirthSiegePoints);
 
+            ftrain1Count.setText(FT.getTraining1Count());
+            ftraining1PB.setProgress(FT.getTraining1Progress());
+            ftrain1comp.setText(FT.getTraining1Completes() + "");
+
         }));
         timeline.setCycleCount(Animation.INDEFINITE);
         return timeline;
     }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        archerBar.setStyle(" -fx-progress-color: red;");
         theGame();
     }
 
@@ -211,6 +237,52 @@ public class Controller implements Initializable {
 
     public void rebirthButton(){
         rebirthTotalSiegePoints = rebirthTotalSiegePoints + rebirthSiegePoints;
+    }
+
+    public String getTime(long gameTicker){
+
+        if(gameTicker % 50 == 0){
+            gameTime = String.format("%02d:%02d:%02d",
+                    TimeUnit.MILLISECONDS.toHours(gameTicker*20),
+                    TimeUnit.MILLISECONDS.toMinutes(gameTicker*20) -
+                    TimeUnit.HOURS.toMinutes(TimeUnit.MILLISECONDS.toHours(gameTicker*20)),
+                    TimeUnit.MILLISECONDS.toSeconds(gameTicker*20) -
+                    TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(gameTicker*20)));
+        }
+        return gameTime;
+    }
+
+    public void training1PlusButtonClick(){
+        if(!countQuant.getText().equals("")){
+            fighterCount = FT.addTraining1count(Integer.parseInt(countQuant.getText()), fighterCount);
+        }
+
+    }
+
+    public void training1MinusButtonClick(){
+        if(!countQuant.getText().equals("")){
+            fighterCount = FT.subTraining1count(Integer.parseInt(countQuant.getText()), fighterCount);
+        }
+    }
+
+    public void fiftyPercent1ButtonClick(){
+        countQuant.setText(fighterCount/2 + "");
+        training1PlusButtonClick();
+    }
+
+    public void training1CapButtonClick(){
+        if(fighterCount > 0) {
+            capCounter=1;
+            for (double i = FT.getTraining1Cap();  i > fighterCount; i = FT.getTraining1Cap() / (float)capCounter) {
+                capCounter++;
+            }
+            System.out.println(capCounter);
+            if(Integer.parseInt(FT.getTraining1Count()) == (int)Math.ceil(FT.getTraining1Cap()/capCounter)){
+
+            }else {
+                fighterCount = FT.addTraining1count((int) Math.ceil(FT.getTraining1Cap() / capCounter), fighterCount);
+            }
+        }
     }
 
 }

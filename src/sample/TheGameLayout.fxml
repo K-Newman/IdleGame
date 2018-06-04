@@ -37,7 +37,7 @@
                                     </Label>
                                     <Label fx:id="siegeAttack" layoutX="36.0" layoutY="65.0" text="Attack: " />
                                     <Label fx:id="siegeDefense" layoutX="36.0" layoutY="86.0" text="Defense:" />
-                                    <Label fx:id="siegeFighters" layoutX="36.0" layoutY="107.0" text="Total Power:" />
+                                    <Label fx:id="siegeTotalPower" layoutX="36.0" layoutY="107.0" text="Total Power:" />
                                     <Button fx:id="attackButton" layoutX="14.0" layoutY="155.0" mnemonicParsing="false" onAction="#attackButton" text="Attack" />
                                     <Button fx:id="attackButton1" layoutX="146.0" layoutY="155.0" mnemonicParsing="false" onAction="#attackButton" text="Siege" />
                                  </children>
@@ -1010,7 +1010,7 @@
                   <Font size="24.0" />
                </font>
             </Label>
-            <Label fx:id="rebirthSiegeCount" prefHeight="35.0" prefWidth="246.0" text="Current siege count: 0">
+            <Label fx:id="rebirthSiegeCount" prefHeight="35.0" prefWidth="317.0" text="Current siege count: 0">
                <font>
                   <Font size="24.0" />
                </font>

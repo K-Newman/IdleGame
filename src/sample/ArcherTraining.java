@@ -5,7 +5,13 @@ public class ArcherTraining {
     private int training1count;
     private double training1Status = 0;
     private int training1Completes = 0;
-    private double training1Cap = 10000;
+
+    public double training1Cap = 5000;
+    public double training2Cap = 10000;
+    public double training3Cap = 15000;
+    public double training4Cap = 20000;
+    public double training5Cap = 25000;
+
     private int tempCount = 0;
 
     public int addTraining1count(int countQuant,int acount){

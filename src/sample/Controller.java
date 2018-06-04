@@ -36,8 +36,13 @@ public class Controller implements Initializable {
     public Label mageCountLabel;
 
     public Label siegeDefense;
-    public Label siegeArchers;
-    public Label siegeFighters;
+    public Label siegeAttack;
+    public Label siegeTotalPower;
+
+    public Label yourAttack;
+    public Label yourDefence;
+    public Label yourTotalPower;
+
 
     public Label siegeMages;
     public Label siegeLabel;
@@ -91,14 +96,17 @@ public class Controller implements Initializable {
 
     int siegeCount = 1;
     boolean siegeBuilt = false;
-    int siegeDef = 0;
-    int siegeA = 1;
-    int siegeF = 1;
-    int siegeM = 1;
-    int siegeArcherDamage = 10;
+    double morale=1;
+
+    long yourTP = 0;
+    long yourAttackPower = 0;
+    long yourDefPower = 0;
+
+
 
     FighterTraining FT = new FighterTraining();
     ArcherTraining AT = new ArcherTraining();
+    Siege siege = new Siege();
 
 
     long gameTicker = 0;
@@ -150,12 +158,18 @@ public class Controller implements Initializable {
             //Siege logic
             //Building siege stats
             if(!siegeBuilt) {
-                siegeA = siegeCount*4;
-                siegeF = siegeCount*5;
-                siegeM = siegeCount*2*0;  //Implement mages you lazy cow!!!
-                siegeBuilt = true;
+                siege.siegeClear();
+                siegeAttack.setText("Attack: " +siege.getCurrentSiegeAttack());
+                siegeDefense.setText("Defense: " + siege.getCurrentSiegeDef());
+                siegeTotalPower.setText("Total Power: " + siege.getSeigeTotalPower());
                 siegeLabel.setText("Siege " + siegeCount);
+                siegeBuilt = siege.getSiegeStatus();
             }
+
+            //Determine your power
+            yourAttackPower = archerCount*10+fighterCount*5+(int)Math.floor(AT.getTraining1Completes()*.1*archerCount);
+            yourDefPower = fighterCount*10+archerCount*2;
+            yourTP=yourAttackPower+yourDefPower;
 
 
 
@@ -178,6 +192,10 @@ public class Controller implements Initializable {
             atraining1PB.setProgress(AT.getTraining1Progress());
             atrain1comp.setText(AT.getTraining1Completes() + "");
 
+            yourTotalPower.setText("Total Power: " + yourTP);
+            yourAttack.setText("Attack: " + yourAttackPower);
+            yourDefence.setText("Defence: " + yourDefPower);
+
         }));
         timeline.setCycleCount(Animation.INDEFINITE);
         return timeline;
@@ -194,48 +212,10 @@ public class Controller implements Initializable {
     }
 
     public void attackButton(){
-        //First phase siege archers attack sieging fighters and archers
-        if(siegeA * siegeArcherDamage>=fighterHealth*fighterCount){
-            fighterCount = 0;
-            if((siegeA*siegeArcherDamage) >= 2*(fighterHealth*fighterCount)){
-                archerCount = ((archerHealth*archerCount) - (siegeA*siegeArcherDamage))/archerHealth;
-                if(archerCount<0){archerCount=0;}
-            }
-        }else{
-            fighterCount = ((fighterHealth * fighterCount) - (siegeA * siegeArcherDamage)) / fighterHealth;
-        }
-        //Second phase sieging archers attack siege archers and fighters
-        if(siegeA < 1 & siegeDef < 1){
-            siegeF = ((siegeF*fighterHealth)-(archerDamage*archerCount))/archerHealth;
-        }
-        if(archerCount * archerDamage > siegeA*archerHealth){
-            siegeA = 0;
-        }else {
-            siegeA = ((siegeA * archerHealth*2) - (archerCount * archerDamage)) / (archerHealth*2);
-        }
-        //Third phase sieging fighters attack seige fighters if there is no defense
-        if(siegeDef > 0){
-            siegeDef = (siegeDef * 100 - (archerDamage*archerCount + fighterDamage*fighterCount + mageDamage+mageCount))/100;
-        }else if((siegeF*fighterHealth)>(fighterCount*fighterHealth)){
-            siegeF = ((siegeF*fighterHealth)-(fighterCount*fighterHealth))/fighterHealth;
-        }else{
-            siegeF = 0;
-        }
-        //Fourth phase siege fighters attack sieging fighters
-        if(siegeDef < 1 & siegeF*fighterHealth > fighterHealth*fighterHealth){
-            fighterCount = 0;
-        }else if(siegeDef < 1){
-            fighterCount = ((fighterHealth * fighterCount)-(siegeF * fighterHealth)) / fighterHealth;
-            if(fighterCount<0){fighterCount=0;}
-        }else{
-
-        }
-
-        //Check to see if siege was successful.  Trigger a rebuild if it was. Add a rebirth point.
-        if(siegeA <= 0 & siegeF <= 0 & siegeM <= 0){
-            siegeCount++;
-            siegeBuilt=false;
-            rebirthSiegePoints++;
+        if(yourTP > siege.getSeigeTotalPower()*3){
+            siege.attackSiege();
+            rebirthSiegePoints = rebirthSiegePoints+1;
+            siegeBuilt = siege.getSiegeStatus();
         }
     }
 
@@ -256,6 +236,8 @@ public class Controller implements Initializable {
         return gameTime;
     }
 
+
+    //Fighter Training
     public void Ftraining1PlusButtonClick(){
         if(!countQuant.getText().equals("")){
             fighterCount = FT.addTraining1count(Integer.parseInt(countQuant.getText()), fighterCount);

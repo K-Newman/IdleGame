@@ -20,11 +20,15 @@ public class Controller implements Initializable {
     public ProgressIndicator archerBar;
     public ProgressIndicator fighterBar;
     public ProgressIndicator mageBar;
+    public ProgressIndicator moraleBar;
 
     public ProgressIndicator ftraining1PB;
     public Label ftrain1comp;
-
     public Label ftrain1Count;
+
+    public ProgressIndicator atraining1PB;
+    public Label atrain1comp;
+    public Label atrain1Count;
 
 
     public Label archerCountLabel;
@@ -94,6 +98,7 @@ public class Controller implements Initializable {
     int siegeArcherDamage = 10;
 
     FighterTraining FT = new FighterTraining();
+    ArcherTraining AT = new ArcherTraining();
 
 
     long gameTicker = 0;
@@ -163,16 +168,15 @@ public class Controller implements Initializable {
             mageCountLabel.setText("Magi: " + mageCount);
             mageBar.setProgress(mBarTicker/100f);
 
-            siegeDefense.setText("Defense: " + siegeDef);
-            siegeArchers.setText("Archers: " + siegeA);
-            siegeFighters.setText("Fighters: " + siegeF);
-            siegeMages.setText("Mages: " + siegeM);
-
             rebirthSiegeCount.setText("Current Siege Points: " + rebirthSiegePoints);
 
             ftrain1Count.setText(FT.getTraining1Count());
             ftraining1PB.setProgress(FT.getTraining1Progress());
             ftrain1comp.setText(FT.getTraining1Completes() + "");
+
+            atrain1Count.setText(AT.getTraining1Count());
+            atraining1PB.setProgress(AT.getTraining1Progress());
+            atrain1comp.setText(AT.getTraining1Completes() + "");
 
         }));
         timeline.setCycleCount(Animation.INDEFINITE);
@@ -252,35 +256,68 @@ public class Controller implements Initializable {
         return gameTime;
     }
 
-    public void training1PlusButtonClick(){
+    public void Ftraining1PlusButtonClick(){
         if(!countQuant.getText().equals("")){
             fighterCount = FT.addTraining1count(Integer.parseInt(countQuant.getText()), fighterCount);
         }
 
     }
 
-    public void training1MinusButtonClick(){
+    public void Ftraining1MinusButtonClick(){
         if(!countQuant.getText().equals("")){
             fighterCount = FT.subTraining1count(Integer.parseInt(countQuant.getText()), fighterCount);
         }
     }
 
-    public void fiftyPercent1ButtonClick(){
+    public void FfiftyPercent1ButtonClick(){
         countQuant.setText(fighterCount/2 + "");
-        training1PlusButtonClick();
+        Ftraining1PlusButtonClick();
     }
 
-    public void training1CapButtonClick(){
+    public void Ftraining1CapButtonClick(){
         if(fighterCount > 0) {
             capCounter=1;
-            for (double i = FT.getTraining1Cap();  i > fighterCount; i = FT.getTraining1Cap() / (float)capCounter) {
+            for (double i = FT.getTraining1Cap();  i > fighterCount+Integer.parseInt(FT.getTraining1Count()); i = FT.getTraining1Cap() / (float)capCounter) {
                 capCounter++;
             }
             System.out.println(capCounter);
             if(Integer.parseInt(FT.getTraining1Count()) == (int)Math.ceil(FT.getTraining1Cap()/capCounter)){
 
             }else {
-                fighterCount = FT.addTraining1count((int) Math.ceil(FT.getTraining1Cap() / capCounter), fighterCount);
+                fighterCount = FT.addTraining1count((int) Math.ceil((FT.getTraining1Cap() / capCounter) - Integer.parseInt(FT.getTraining1Count())), fighterCount);
+            }
+        }
+    }
+
+    //Archer Training
+    public void Atraining1PlusButtonClick(){
+        if(!countQuant.getText().equals("")){
+            archerCount = AT.addTraining1count(Integer.parseInt(countQuant.getText()), archerCount);
+        }
+    }
+
+    public void Atraining1MinusButtonClick(){
+        if(!countQuant.getText().equals("")){
+            archerCount = AT.subTraining1count(Integer.parseInt(countQuant.getText()), archerCount);
+        }
+    }
+
+    public void AfiftyPercent1ButtonClick(){
+        countQuant.setText(archerCount/2 + "");
+        Atraining1PlusButtonClick();
+    }
+
+    public void Atraining1CapButtonClick(){
+        if(archerCount > 0) {
+            capCounter=1;
+            for (double i = AT.getTraining1Cap();  i > archerCount+Integer.parseInt(AT.getTraining1Count()); i = AT.getTraining1Cap() / (float)capCounter) {
+                capCounter++;
+            }
+            System.out.println(capCounter);
+            if(Integer.parseInt(AT.getTraining1Count()) == (int)Math.ceil(AT.getTraining1Cap()/capCounter)){
+
+            }else {
+                archerCount = AT.addTraining1count((int) Math.ceil((AT.getTraining1Cap() / (capCounter))-Integer.parseInt(AT.getTraining1Count())), archerCount);
             }
         }
     }

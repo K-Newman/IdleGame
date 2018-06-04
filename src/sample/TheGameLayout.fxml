@@ -26,7 +26,7 @@
             <content>
               <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" styleClass="root">
                      <children>
-                        <StackPane layoutX="767.0" layoutY="195.0" prefHeight="237.0" prefWidth="219.0" styleClass="StackPane">
+                        <StackPane layoutX="689.0" layoutY="300.0" prefHeight="204.0" prefWidth="219.0" styleClass="StackPane">
                            <children>
                               <Pane prefHeight="200.0" prefWidth="200.0">
                                  <children>
@@ -35,11 +35,11 @@
                                           <Font size="24.0" />
                                        </font>
                                     </Label>
-                                    <Label fx:id="siegeDefense" layoutX="36.0" layoutY="65.0" text="Defenses: " />
-                                    <Label fx:id="siegeArchers" layoutX="36.0" layoutY="86.0" text="Archers:" />
-                                    <Label fx:id="siegeFighters" layoutX="36.0" layoutY="107.0" text="Fighters:" />
-                                    <Label fx:id="siegeMages" layoutX="36.0" layoutY="128.0" text="Mages: " />
-                                    <Button fx:id="attackButton" layoutX="68.0" layoutY="155.0" mnemonicParsing="false" onAction="#attackButton" text="Attack" />
+                                    <Label fx:id="siegeAttack" layoutX="36.0" layoutY="65.0" text="Attack: " />
+                                    <Label fx:id="siegeDefense" layoutX="36.0" layoutY="86.0" text="Defense:" />
+                                    <Label fx:id="siegeFighters" layoutX="36.0" layoutY="107.0" text="Total Power:" />
+                                    <Button fx:id="attackButton" layoutX="14.0" layoutY="155.0" mnemonicParsing="false" onAction="#attackButton" text="Attack" />
+                                    <Button fx:id="attackButton1" layoutX="146.0" layoutY="155.0" mnemonicParsing="false" onAction="#attackButton" text="Siege" />
                                  </children>
                               </Pane>
                            </children>
@@ -56,16 +56,16 @@
                                                 <Label text="Aerobic Activity" />
                                              </children>
                                           </StackPane>
-                                          <Label fx:id="ftrain1comp" prefHeight="31.0" prefWidth="85.0" styleClass="LabelTraining">
+                                          <Label fx:id="ftrain1comp" prefHeight="31.0" prefWidth="85.0" styleClass="LabelTraining" text="0">
                                              <HBox.margin>
                                                 <Insets left="5.0" />
                                              </HBox.margin>
                                           </Label>
                                           <Pane prefHeight="31.0" prefWidth="5.0" />
-                                          <Button mnemonicParsing="false" onAction="#training1PlusButtonClick" text="+" />
-                                          <Button mnemonicParsing="false" onAction="#training1MinusButtonClick" text="-" />
-                                          <Button mnemonicParsing="false" onAction="#fiftyPercent1ButtonClick" text="50%" />
-                                          <Button mnemonicParsing="false" onAction="#training1CapButtonClick" text="Cap" />
+                                          <Button mnemonicParsing="false" onAction="#Ftraining1PlusButtonClick" text="+" />
+                                          <Button mnemonicParsing="false" onAction="#Ftraining1MinusButtonClick" text="-" />
+                                          <Button mnemonicParsing="false" onAction="#FfiftyPercent1ButtonClick" text="50%" />
+                                          <Button mnemonicParsing="false" onAction="#Ftraining1CapButtonClick" text="Cap" />
                                           <Label fx:id="ftrain1Count" prefHeight="31.0" prefWidth="88.0" styleClass="LabelTraining" text="0">
                                              <HBox.margin>
                                                 <Insets left="5.0" />
@@ -202,7 +202,7 @@
                               </VBox>
                            </children>
                         </StackPane>
-                        <TextField fx:id="countQuant" layoutX="637.0" layoutY="125.0" prefHeight="31.0" prefWidth="89.0" />
+                        <TextField fx:id="countQuant" layoutX="251.0" layoutY="27.0" prefHeight="31.0" prefWidth="89.0" text="1" />
                         <StackPane layoutX="49.0" layoutY="76.0" prefHeight="190.0" prefWidth="542.0" styleClass="StackPane">
                            <children>
                               <VBox prefHeight="186.0" prefWidth="448.0">
@@ -221,10 +221,10 @@
                                              </HBox.margin>
                                           </Label>
                                           <Pane prefHeight="31.0" prefWidth="5.0" />
-                                          <Button mnemonicParsing="false" onAction="#training1PlusButtonClick" text="+" />
-                                          <Button mnemonicParsing="false" onAction="#training1MinusButtonClick" text="-" />
-                                          <Button mnemonicParsing="false" onAction="#fiftyPercent1ButtonClick" text="50%" />
-                                          <Button mnemonicParsing="false" text="Cap" />
+                                          <Button mnemonicParsing="false" onAction="#Atraining1PlusButtonClick" text="+" />
+                                          <Button mnemonicParsing="false" onAction="#Atraining1MinusButtonClick" text="-" />
+                                          <Button mnemonicParsing="false" onAction="#AfiftyPercent1ButtonClick" text="50%" />
+                                          <Button mnemonicParsing="false" onAction="#Atraining1CapButtonClick" text="Cap" />
                                           <Label fx:id="atrain1Count" prefHeight="31.0" prefWidth="88.0" styleClass="LabelTraining" text="0">
                                              <HBox.margin>
                                                 <Insets left="5.0" />
@@ -359,6 +359,32 @@
                                     </HBox>
                                  </children>
                               </VBox>
+                           </children>
+                        </StackPane>
+                        <StackPane layoutX="689.0" layoutY="76.0" prefHeight="190.0" prefWidth="219.0" styleClass="StackPane">
+                           <children>
+                              <Pane prefHeight="165.0" prefWidth="217.0">
+                                 <children>
+                                    <Label fx:id="yourLabel1" alignment="CENTER" layoutX="71.0" layoutY="14.0" text="You">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Label>
+                                    <VBox layoutX="14.0" layoutY="57.0" prefHeight="92.0" prefWidth="189.0">
+                                       <children>
+                                          <Label fx:id="yourAttack" alignment="BASELINE_RIGHT" contentDisplay="TOP" text="Attack: " />
+                                          <Label fx:id="yourDefence" text="Defence: " />
+                                          <Label fx:id="yourTotalPower" text="Total Power: " />
+                                          <StackPane prefHeight="25.0" prefWidth="200.0">
+                                             <children>
+                                                <ProgressBar fx:id="moraleBar" prefWidth="200.0" progress="0.0" />
+                                                <Label contentDisplay="RIGHT" text="Morale: " />
+                                             </children>
+                                          </StackPane>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </Pane>
                            </children>
                         </StackPane>
                      </children>

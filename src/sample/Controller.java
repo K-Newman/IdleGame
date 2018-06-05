@@ -11,7 +11,6 @@ import javafx.scene.image.ImageView;
 import javafx.util.Duration;
 
 import java.net.URL;
-import java.sql.Time;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.concurrent.TimeUnit;
@@ -29,6 +28,10 @@ public class Controller implements Initializable {
     public ProgressIndicator atraining1PB;
     public Label atrain1comp;
     public Label atrain1Count;
+
+    public Label rebirthSP;
+    public Label archerTrainingCurrentSpeed;
+    public Label siegePointsLabel;
 
 
     public Label archerCountLabel;
@@ -63,15 +66,16 @@ public class Controller implements Initializable {
     ArrayList<Fighter> sFighters = new ArrayList<>();
     ArrayList<Mage> sMages = new ArrayList<>();
 
-    int rebirthTotalSiegePoints = 0;
+    int siegePoints = 1000;
     int rebirthSiegePoints = 0;
 
     int archerTicker = 1;
     int aGTicker = 0;
-    int aBarTicker = 0;
+    double aBarTicker = 0;
     int archerCount = 0;
-    int archerDiscount = 1;
-    int aTickPower = 0;
+    double archerDiscount = 1;
+    double aTickPower = 0;
+    int aPower = 0;
     int archerDamage = 10;
     int archerHealth = 10;
 
@@ -124,18 +128,20 @@ public class Controller implements Initializable {
 
             getTime(gameTicker);
             campaignTimer.setText("Campaign timer: " + gameTime);
+
             //Archer bar controls
-            if(archerTicker/(archerDiscount) < aGTicker){
+            if((double)archerTicker/(archerDiscount) <= aGTicker & archerCount < 100){
                 aBarTicker = aBarTicker + 1 + aTickPower;
                 aGTicker=0;
             }
             if(aBarTicker >=100){
                 aBarTicker = aBarTicker-100;
+                System.out.println(aBarTicker);
                 //Archers.add(new Archer());
-                archerCount++;
+                archerCount = archerCount + 1 + aPower;
             }
             //Fighter bar controls
-            if(fighterTicker/(fighterDiscount) < fGTicker){
+            if(fighterTicker/(fighterDiscount) < fGTicker & fighterCount < 100){
                 fBarTicker = fBarTicker + 1 + fTickPower;
                 fGTicker=0;
             }
@@ -145,7 +151,7 @@ public class Controller implements Initializable {
                 fighterCount++;
             }
             //Mage bar controls
-            if(mageTicker/(mageDiscount) < mGTicker & mageUnlocked){
+            if(mageTicker/(mageDiscount) < mGTicker & mageUnlocked & mageCount < 5){
                 mBarTicker = mBarTicker + 1 + mTickPower;
                 mGTicker=0;
             }
@@ -196,6 +202,10 @@ public class Controller implements Initializable {
             yourAttack.setText("Attack: " + yourAttackPower);
             yourDefence.setText("Defence: " + yourDefPower);
 
+            rebirthSP.setText(rebirthSiegePoints + "");
+            archerTrainingCurrentSpeed.setText("Current Speed: " + (double)Math.round(aTickPower*100)/100);
+            siegePointsLabel.setText(siegePoints + "");
+
         }));
         timeline.setCycleCount(Animation.INDEFINITE);
         return timeline;
@@ -220,7 +230,7 @@ public class Controller implements Initializable {
     }
 
     public void rebirthButton(){
-        rebirthTotalSiegePoints = rebirthTotalSiegePoints + rebirthSiegePoints;
+        siegePoints = siegePoints + rebirthSiegePoints;
     }
 
     public String getTime(long gameTicker){
@@ -301,6 +311,20 @@ public class Controller implements Initializable {
             }else {
                 archerCount = AT.addTraining1count((int) Math.ceil((AT.getTraining1Cap() / (capCounter))-Integer.parseInt(AT.getTraining1Count())), archerCount);
             }
+        }
+    }
+
+    public void archerTrainingSpeedButton1(){
+        if(siegePoints >=1){
+            aTickPower = aTickPower + .1;
+            siegePoints-=1;
+        }
+    }
+
+    public void archerTrainingSpeedButton2(){
+        if(siegePoints >=10){
+            aTickPower = aTickPower + 1;
+            siegePoints-=10;
         }
     }
 

@@ -397,6 +397,72 @@
                      <children>
                         <Button layoutX="417.0" layoutY="131.0" mnemonicParsing="false" onAction="#rebirthButton" text="Start a new Campaign" />
                         <Label layoutX="202.0" layoutY="24.0" prefHeight="96.0" prefWidth="597.0" text="Start a new campaign on a different front.  Some of the progress made on this front will aid you in your future battles.  The camps, villages, towns, castles, etc that you have sieged can be converted into training camps, research facilities, arcane exploratories, etc to make your future battles more decisive.  Troop counts, spoils of war, etc will be left behind." textAlignment="JUSTIFY" wrapText="true" />
+                        <VBox layoutX="556.0" layoutY="175.0" prefHeight="60.0" prefWidth="243.0">
+                           <children>
+                              <Label text="Siege Points on focus change:">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="rebirthSP" alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="27.0" prefWidth="253.0" text="0" textAlignment="CENTER">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <StackPane layoutX="14.0" layoutY="304.0" prefHeight="316.0" prefWidth="973.0" styleClass="StackPane">
+                           <children>
+                              <TabPane prefHeight="383.0" prefWidth="971.0" tabClosingPolicy="UNAVAILABLE">
+                                <tabs>
+                                  <Tab text="Fighter" />
+                                    <Tab text="Archer">
+                                      <content>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                             <children>
+                                                <VBox layoutX="54.0" layoutY="72.0" prefHeight="115.0" prefWidth="133.0">
+                                                   <children>
+                                                      <Button alignment="CENTER" mnemonicParsing="false" onAction="#archerTrainingSpeedButton1" prefHeight="31.0" prefWidth="134.0" text="+0.1 - 1 SP" />
+                                                      <Button alignment="CENTER" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#archerTrainingSpeedButton2" prefHeight="31.0" prefWidth="134.0" text="+1 - 10 SP" />
+                                                      <Button alignment="CENTER" layoutX="10.0" layoutY="41.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="134.0" text="+5 - 50 SP" />
+                                                      <Button alignment="CENTER" layoutX="10.0" layoutY="72.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="134.0" text="+10 - 100 SP" />
+                                                      <Button alignment="CENTER" layoutX="10.0" layoutY="103.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="134.0" text="+100 - 1,000 SP" />
+                                                   </children>
+                                                </VBox>
+                                                <Label layoutX="47.0" layoutY="14.0" text="Archer Training Speed" />
+                                                <Label fx:id="archerTrainingCurrentSpeed" layoutX="63.0" layoutY="42.0" text="Current Speed:    " />
+                                             </children>
+                                          </AnchorPane>
+                                      </content>
+                                    </Tab>
+                                    <Tab text="Mage">
+                                      <content>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                      </content>
+                                    </Tab>
+                                    <Tab text="Champion">
+                                      <content>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                      </content>
+                                    </Tab>
+                                </tabs>
+                              </TabPane>
+                           </children>
+                        </StackPane>
+                        <VBox layoutX="202.0" layoutY="175.0" prefHeight="60.0" prefWidth="243.0">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="27.0" prefWidth="248.0" text="Total Siege Points:">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="siegePointsLabel" alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="27.0" prefWidth="253.0" text="0" textAlignment="CENTER">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
                      </children>
                   </AnchorPane>
             </content>

@@ -35,4 +35,10 @@ public class Siege {
     public boolean getSiegeStatus(){
         return siegeStatus;
     }
+
+    public void resetSiege(){
+        currentSiegeAttack=10;
+        currentSiegeDef=11;
+
+    }
 }

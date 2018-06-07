@@ -1,0 +1,62 @@
+
+Add color
+Fix progress bars at caps
+    Make them 100% if at cap
+
+A training SP spend
+    A train speed - Mostly Done.  Work on balance
+    A power
+    A trained per bar
+    A cap - Determine if this is going to be a thing and how to implement
+
+F training SP spend
+    Model after A training
+
+
+Champion Tab
+    Add equipment items
+        Need art
+        Need tiers
+            Different modifiers
+            Loot
+    Need enemies
+    Need a point
+    Can the champion be rebirthed independent of the campaign
+    Classes and subclasses
+        Fighter
+            Death Knight
+                raise the dead to fight
+            Paladin
+                D2ish
+            Berserker
+                Raw power no fluff
+        Archer
+            Assassin
+                High dex
+            Hunter
+                Use of a pet
+            Sniper
+                Longbowmen
+                High crit
+        Mage
+            Corrupter
+                Wow warlock
+                DOTs and lifesteal
+            Incanter
+                requires scrolls and tomes
+                    maybe consumable
+            Evoker
+                Elementalist
+                Very strong
+                High mana consumption
+
+
+Mages
+    Need a tower
+    Need training
+    Need a purpose
+        Spells that are autocast
+        Spells that require a specific number of mages
+        Spells that are manually cast
+        Possible spells for champion
+

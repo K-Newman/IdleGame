@@ -33,3 +33,24 @@
     -fx-border-width: 1;
     -fx-border-color: black;
 }
+
+.StackPaneArcherWrapper{
+    -fx-border-color: grey;
+    -fx-background-color: rgb(0, 102, 0, .7);
+    -fx-background-opacity: .5;
+}
+
+.StackPaneArcherSubWrapper{
+    -fx-border-color: grey;
+    -fx-background-color: rgb(0, 102, 0, .3);
+    -fx-background-opacity: .5;
+}
+
+.ButtonArcherColor{
+    -fx-background-color:
+        #339933,
+        linear-gradient(#00cc66, #006600),
+        linear-gradient(#339933 0%, #2b912b 49%, #298f29 50%, #1f851f 100%);
+    -fx-background-insets: 0,1,2;
+    -fx-background-radius: 3,2,1;
+}

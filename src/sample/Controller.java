@@ -24,6 +24,21 @@ public class Controller implements Initializable {
     public ProgressIndicator ftraining1PB;
     public Label ftrain1comp;
     public Label ftrain1Count;
+    public ProgressIndicator ftraining2PB;
+    public Label ftrain2comp;
+    public Label ftrain2Count;
+    public ProgressIndicator ftraining3PB;
+    public Label ftrain3comp;
+    public Label ftrain3Count;
+    public ProgressIndicator ftraining4PB;
+    public Label ftrain4comp;
+    public Label ftrain4Count;
+    public ProgressIndicator ftraining5PB;
+    public Label ftrain5comp;
+    public Label ftrain5Count;
+    public ProgressIndicator ftraining6PB;
+    public Label ftrain6comp;
+    public Label ftrain6Count;
 
     public ProgressIndicator atraining1PB;
     public Label atrain1comp;
@@ -46,6 +61,8 @@ public class Controller implements Initializable {
 
     public Label rebirthSP;
     public Label archerTrainingCurrentSpeed;
+    public Label archerTrainingCurrentCount;
+    public Label archerTrainingCurrentAttack;
     public Label siegePointsLabel;
 
 
@@ -82,8 +99,9 @@ public class Controller implements Initializable {
     int archerCount = 0;
     double archerDiscount = 1;
     double aTickPower = 1;
-    int aPower = 0;
+    int aPower = 1;
     int archerCap = 100;
+    double archerAttackPower = 10;
 
     int fighterTicker = 5;
     int fGTicker = 0;
@@ -91,7 +109,9 @@ public class Controller implements Initializable {
     int fighterCount = 0;
     int fighterDiscount = 1;
     int fTickPower = 0;
+    int fPower = 1;
     int fighterCap = 100;
+    double fighterAttackPower = 5;
 
     int mageTicker = 1;
     int mGTicker = 0;
@@ -144,7 +164,7 @@ public class Controller implements Initializable {
                 aBarTicker = aBarTicker-100;
                 if(aBarTicker>=100){aBarTicker = 0;}
                 System.out.println(aBarTicker);
-                archerCount = archerCount + 1 + aPower;
+                archerCount += aPower;
             }
             //Fighter bar controls
             if(fighterTicker/(fighterDiscount) <= fGTicker & fighterCount < fighterCap){
@@ -157,7 +177,7 @@ public class Controller implements Initializable {
             if(fBarTicker >=100){
                 fBarTicker = fBarTicker-100;
                 if(fBarTicker>=100){fBarTicker = 0;}
-                fighterCount++;
+                fighterCount += fPower;
             }
             //Mage bar controls
             if(mageTicker/(mageDiscount) < mGTicker & mageUnlocked & mageCount < 5){
@@ -183,28 +203,22 @@ public class Controller implements Initializable {
                     siegeTotalPower.setText("Total Power: " + NC.convertToSci(siege.getSeigeTotalPower()));
                 }
 
-
-
                 siegeLabel.setText("Siege " + siegeCount);
                 siegeBuilt = siege.getSiegeStatus();
-
-                if(archerCap == 100 & siegeCount > 2){
-                    archerCap = 1000;
-                    fighterCap = 1000;
-                } else {
-                    archerCap += 1000;
-                    fighterCap += 1000;
-                }
+                archerCap = (int)(1000*(Math.floor(Math.log(siegeCount)/Math.log(2)) + 1));
+                fighterCap = archerCap;
                 siegeCount++;
             }
 
-            //Determine your power
-            yourAttackPower = archerCount*(10+(int)Math.floor(AT.getTotalTrainingCompletes())+fighterCount*5);
-            yourDefPower = fighterCount*10+archerCount*2;
+            //Determine your attack and def
+            yourAttackPower = archerCount*((int)Math.round(archerAttackPower)+(int)Math.floor(AT.getTotalTrainingCompletes()))+
+                    fighterCount*((int)Math.floor(fighterAttackPower)+(int)Math.floor(FT.getTotalTrainingCompletes()));
+            yourDefPower = fighterCount*(10+(int)Math.round(FT.getTotalTrainingCompletes()))+
+                    archerCount*(2+(int)Math.floor(AT.getTotalTrainingCompletes()));
             yourTP=yourAttackPower+yourDefPower;
 
 
-
+            //Display your troop counts
             archerCountLabel.setText("Archers: " + NC.addCommasInt(archerCount));
             archerBar.setProgress(aBarTicker/100f);
 
@@ -214,12 +228,36 @@ public class Controller implements Initializable {
             mageCountLabel.setText("Magi: " + mageCount);
             mageBar.setProgress(mBarTicker/100f);
 
+            //Display your siege points
             rebirthSiegeCount.setText("Current Siege Points: " + NC.addCommasInt(rebirthSiegePoints));
 
+
+            //Display Fighter Training
             ftrain1Count.setText(FT.getTraining1Count());
             ftraining1PB.setProgress(FT.getTraining1Progress());
             ftrain1comp.setText(FT.getTraining1Completes() + "");
 
+            ftrain2Count.setText(FT.getTraining2Count());
+            ftraining2PB.setProgress(FT.getTraining2Progress());
+            ftrain2comp.setText(FT.getTraining2Completes() + "");
+
+            ftrain3Count.setText(FT.getTraining3Count());
+            ftraining3PB.setProgress(FT.getTraining3Progress());
+            ftrain3comp.setText(FT.getTraining3Completes() + "");
+
+            ftrain4Count.setText(FT.getTraining4Count());
+            ftraining4PB.setProgress(FT.getTraining4Progress());
+            ftrain4comp.setText(FT.getTraining4Completes() + "");
+
+            ftrain5Count.setText(FT.getTraining5Count());
+            ftraining5PB.setProgress(FT.getTraining5Progress());
+            ftrain5comp.setText(FT.getTraining5Completes() + "");
+
+            ftrain6Count.setText(FT.getTraining6Count());
+            ftraining6PB.setProgress(FT.getTraining6Progress());
+            ftrain6comp.setText(FT.getTraining6Completes() + "");
+
+            //Display Archer Training
             atrain1Count.setText(AT.getTraining1Count());
             atraining1PB.setProgress(AT.getTraining1Progress());
             atrain1comp.setText(AT.getTraining1Completes() + "");
@@ -244,12 +282,15 @@ public class Controller implements Initializable {
             atraining6PB.setProgress(AT.getTraining6Progress());
             atrain6comp.setText(AT.getTraining6Completes() + "");
 
+            //Display your attack and def
             yourTotalPower.setText("Total Power: " + NC.convertToSci(yourTP));
             yourAttack.setText("Attack: " + NC.convertToSci(yourAttackPower));
             yourDefence.setText("Defence: " + NC.convertToSci(yourDefPower));
 
             rebirthSP.setText(rebirthSiegePoints + "");
             archerTrainingCurrentSpeed.setText("Current Speed: " + (double)Math.round(aTickPower*100)/100);
+            archerTrainingCurrentCount.setText("Current Count: " + aPower);
+            archerTrainingCurrentAttack.setText("Current Attack: " + (double)Math.round(archerAttackPower*10)/10);
             siegePointsLabel.setText(siegePoints + "");
 
         }));
@@ -280,6 +321,7 @@ public class Controller implements Initializable {
         siege.resetSiege();
         siegeBuilt=false;
         AT.rebirthClear();
+        FT.rebirthClear();
 
     }
 
@@ -303,18 +345,15 @@ public class Controller implements Initializable {
             fighterCount = FT.addTraining1count(Integer.parseInt(countQuant.getText()), fighterCount);
         }
     }
-
     public void Ftraining1MinusButtonClick(){
         if(!countQuant.getText().equals("")){
             fighterCount = FT.subTraining1count(Integer.parseInt(countQuant.getText()), fighterCount);
         }
     }
-
     public void FfiftyPercent1ButtonClick(){
         countQuant.setText(fighterCount/2 + "");
         Ftraining1PlusButtonClick();
     }
-
     public void Ftraining1CapButtonClick(){
         if(fighterCount > 0) {
             capCounter=1;
@@ -325,16 +364,159 @@ public class Controller implements Initializable {
             if(Integer.parseInt(FT.getTraining1Count()) == (int)Math.ceil(FT.getTraining1Cap()/capCounter)){
 
             }else {
-                fighterCount = FT.addTraining1count((int) Math.ceil((FT.getTraining1Cap() / capCounter) - Integer.parseInt(FT.getTraining1Count())), fighterCount);
+                fighterCount = FT.addTraining1count((int) Math.ceil((FT.getTraining1Cap() / (capCounter))-Integer.parseInt(FT.getTraining1Count())), fighterCount);
+            }
+        }
+    }
+
+    public void Ftraining2PlusButtonClick(){
+        if(!countQuant.getText().equals("")){
+            fighterCount = FT.addTraining2count(Integer.parseInt(countQuant.getText()), fighterCount);
+        }
+    }
+    public void Ftraining2MinusButtonClick(){
+        if(!countQuant.getText().equals("")){
+            fighterCount = FT.subTraining2count(Integer.parseInt(countQuant.getText()), fighterCount);
+        }
+    }
+    public void FfiftyPercent2ButtonClick(){
+        countQuant.setText(fighterCount/2 + "");
+        Ftraining2PlusButtonClick();
+    }
+    public void Ftraining2CapButtonClick(){
+        if(fighterCount > 0) {
+            capCounter=1;
+            for (double i = FT.getTraining2Cap();  i > fighterCount+Integer.parseInt(FT.getTraining2Count()); i = FT.getTraining2Cap() / (float)capCounter) {
+                capCounter++;
+            }
+            System.out.println(capCounter);
+            if(Integer.parseInt(FT.getTraining2Count()) == (int)Math.ceil(FT.getTraining2Cap()/capCounter)){
+
+            }else {
+                fighterCount = FT.addTraining2count((int) Math.ceil((FT.getTraining2Cap() / (capCounter))-Integer.parseInt(FT.getTraining2Count())), fighterCount);
+            }
+        }
+    }
+
+    public void Ftraining3PlusButtonClick(){
+        if(!countQuant.getText().equals("")){
+            fighterCount = FT.addTraining3count(Integer.parseInt(countQuant.getText()), fighterCount);
+        }
+    }
+    public void Ftraining3MinusButtonClick(){
+        if(!countQuant.getText().equals("")){
+            fighterCount = FT.subTraining3count(Integer.parseInt(countQuant.getText()), fighterCount);
+        }
+    }
+    public void FfiftyPercent3ButtonClick(){
+        countQuant.setText(fighterCount/3 + "");
+        Ftraining3PlusButtonClick();
+    }
+    public void Ftraining3CapButtonClick(){
+        if(fighterCount > 0) {
+            capCounter=1;
+            for (double i = FT.getTraining3Cap();  i > fighterCount+Integer.parseInt(FT.getTraining3Count()); i = FT.getTraining3Cap() / (float)capCounter) {
+                capCounter++;
+            }
+            System.out.println(capCounter);
+            if(Integer.parseInt(FT.getTraining3Count()) == (int)Math.ceil(FT.getTraining3Cap()/capCounter)){
+
+            }else {
+                fighterCount = FT.addTraining3count((int) Math.ceil((FT.getTraining3Cap() / (capCounter))-Integer.parseInt(FT.getTraining3Count())), fighterCount);
+            }
+        }
+    }
+
+    public void Ftraining4PlusButtonClick(){
+        if(!countQuant.getText().equals("")){
+            fighterCount = FT.addTraining4count(Integer.parseInt(countQuant.getText()), fighterCount);
+        }
+    }
+    public void Ftraining4MinusButtonClick(){
+        if(!countQuant.getText().equals("")){
+            fighterCount = FT.subTraining4count(Integer.parseInt(countQuant.getText()), fighterCount);
+        }
+    }
+    public void FfiftyPercent4ButtonClick(){
+        countQuant.setText(fighterCount/4 + "");
+        Ftraining4PlusButtonClick();
+    }
+    public void Ftraining4CapButtonClick(){
+        if(fighterCount > 0) {
+            capCounter=1;
+            for (double i = FT.getTraining4Cap();  i > fighterCount+Integer.parseInt(FT.getTraining4Count()); i = FT.getTraining4Cap() / (float)capCounter) {
+                capCounter++;
+            }
+            System.out.println(capCounter);
+            if(Integer.parseInt(FT.getTraining4Count()) == (int)Math.ceil(FT.getTraining4Cap()/capCounter)){
+
+            }else {
+                fighterCount = FT.addTraining4count((int) Math.ceil((FT.getTraining4Cap() / (capCounter))-Integer.parseInt(FT.getTraining4Count())), fighterCount);
+            }
+        }
+    }
+
+    public void Ftraining5PlusButtonClick(){
+        if(!countQuant.getText().equals("")){
+            fighterCount = FT.addTraining5count(Integer.parseInt(countQuant.getText()), fighterCount);
+        }
+    }
+    public void Ftraining5MinusButtonClick(){
+        if(!countQuant.getText().equals("")){
+            fighterCount = FT.subTraining5count(Integer.parseInt(countQuant.getText()), fighterCount);
+        }
+    }
+    public void FfiftyPercent5ButtonClick(){
+        countQuant.setText(fighterCount/5 + "");
+        Ftraining5PlusButtonClick();
+    }
+    public void Ftraining5CapButtonClick(){
+        if(fighterCount > 0) {
+            capCounter=1;
+            for (double i = FT.getTraining5Cap();  i > fighterCount+Integer.parseInt(FT.getTraining5Count()); i = FT.getTraining5Cap() / (float)capCounter) {
+                capCounter++;
+            }
+            System.out.println(capCounter);
+            if(Integer.parseInt(FT.getTraining5Count()) == (int)Math.ceil(FT.getTraining5Cap()/capCounter)){
+
+            }else {
+                fighterCount = FT.addTraining5count((int) Math.ceil((FT.getTraining5Cap() / (capCounter))-Integer.parseInt(FT.getTraining5Count())), fighterCount);
+            }
+        }
+    }
+
+    public void Ftraining6PlusButtonClick(){
+        if(!countQuant.getText().equals("")){
+            fighterCount = FT.addTraining6count(Integer.parseInt(countQuant.getText()), fighterCount);
+        }
+    }
+    public void Ftraining6MinusButtonClick(){
+        if(!countQuant.getText().equals("")){
+            fighterCount = FT.subTraining6count(Integer.parseInt(countQuant.getText()), fighterCount);
+        }
+    }
+    public void FfiftyPercent6ButtonClick(){
+        countQuant.setText(fighterCount/6 + "");
+        Ftraining6PlusButtonClick();
+    }
+    public void Ftraining6CapButtonClick(){
+        if(fighterCount > 0) {
+            capCounter=1;
+            for (double i = FT.getTraining6Cap();  i > fighterCount+Integer.parseInt(FT.getTraining6Count()); i = FT.getTraining6Cap() / (float)capCounter) {
+                capCounter++;
+            }
+            System.out.println(capCounter);
+            if(Integer.parseInt(FT.getTraining6Count()) == (int)Math.ceil(FT.getTraining6Cap()/capCounter)){
+
+            }else {
+                fighterCount = FT.addTraining6count((int) Math.ceil((FT.getTraining6Cap() / (capCounter))-Integer.parseInt(FT.getTraining6Count())), fighterCount);
             }
         }
     }
 
     //Archer Training
     public void Atraining1PlusButtonClick(){
-        if(!countQuant.getText().equals("")){
-            archerCount = AT.addTraining1count(Integer.parseInt(countQuant.getText()), archerCount);
-        }
+        if(!countQuant.getText().equals("")){archerCount = AT.addTraining1count(Integer.parseInt(countQuant.getText()), archerCount);}
     }
     public void Atraining1MinusButtonClick(){
         if(!countQuant.getText().equals("")){
@@ -537,4 +719,65 @@ public class Controller implements Initializable {
         }
     }
 
+    public void archerTrainingPowerButton1(){
+        if(siegePoints >= 100){
+            aPower = aPower + 1;
+            siegePoints -= 100;
+        }
+    }
+    public void archerTrainingPowerButton2(){
+        if(siegePoints >= 500){
+            aPower = aPower + 5;
+            siegePoints -= 500;
+        }
+    }
+    public void archerTrainingPowerButton3(){
+        if(siegePoints >= 1000){
+            aPower = aPower + 10;
+            siegePoints -= 1000;
+        }
+    }
+    public void archerTrainingPowerButton4(){
+        if(siegePoints >= 2000){
+            aPower = aPower + 20;
+            siegePoints -= 2000;
+        }
+    }
+    public void archerTrainingPowerButton5(){
+        if(siegePoints >= 5000){
+            aPower = aPower + 50;
+            siegePoints -= 5000;
+        }
+    }
+
+    public void archerTrainingAttackButton1(){
+        if(siegePoints >=10){
+            archerAttackPower += .1;
+            siegePoints -= 10;
+        }
+    }
+    public void archerTrainingAttackButton2(){
+        if(siegePoints >=50){
+            archerAttackPower += .5;
+            siegePoints -= 50;
+        }
+    }
+    public void archerTrainingAttackButton3(){
+        if(siegePoints >=100){
+            archerAttackPower += 1;
+            siegePoints -= 100;
+        }
+    }
+    public void archerTrainingAttackButton4(){
+        if(siegePoints >=200){
+            archerAttackPower += 2;
+            siegePoints -= 200;
+        }
+    }
+    public void archerTrainingAttackButton5(){
+        if(siegePoints >=500){
+            archerAttackPower += 5;
+            siegePoints -= 500;
+        }
+    }
 }

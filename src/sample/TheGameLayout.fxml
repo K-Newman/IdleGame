@@ -87,10 +87,10 @@
                                              </HBox.margin>
                                           </Label>
                                           <Pane prefHeight="31.0" prefWidth="5.0" />
-                                          <Button mnemonicParsing="false" text="+" />
-                                          <Button mnemonicParsing="false" text="-" />
-                                          <Button mnemonicParsing="false" text="50%" />
-                                          <Button mnemonicParsing="false" text="Cap" />
+                                          <Button mnemonicParsing="false" onAction="#Ftraining2PlusButtonClick" text="+" />
+                                          <Button mnemonicParsing="false" onAction="#Ftraining2MinusButtonClick" text="-" />
+                                          <Button mnemonicParsing="false" onAction="#FfiftyPercent2ButtonClick" text="50%" />
+                                          <Button mnemonicParsing="false" onAction="#Ftraining2CapButtonClick" text="Cap" />
                                           <Label fx:id="ftrain2Count" prefHeight="31.0" prefWidth="88.0" styleClass="LabelTraining" text="0">
                                              <HBox.margin>
                                                 <Insets left="5.0" />
@@ -112,10 +112,10 @@
                                              </HBox.margin>
                                           </Label>
                                           <Pane prefHeight="31.0" prefWidth="5.0" />
-                                          <Button mnemonicParsing="false" text="+" />
-                                          <Button mnemonicParsing="false" text="-" />
-                                          <Button mnemonicParsing="false" text="50%" />
-                                          <Button mnemonicParsing="false" text="Cap" />
+                                          <Button mnemonicParsing="false" onAction="#Ftraining3PlusButtonClick" text="+" />
+                                          <Button mnemonicParsing="false" onAction="#Ftraining3MinusButtonClick" text="-" />
+                                          <Button mnemonicParsing="false" onAction="#FfiftyPercent3ButtonClick" text="50%" />
+                                          <Button mnemonicParsing="false" onAction="#Ftraining3CapButtonClick" text="Cap" />
                                           <Label fx:id="ftrain3Count" prefHeight="31.0" prefWidth="88.0" styleClass="LabelTraining" text="0">
                                              <HBox.margin>
                                                 <Insets left="5.0" />
@@ -137,10 +137,10 @@
                                              </HBox.margin>
                                           </Label>
                                           <Pane prefHeight="31.0" prefWidth="5.0" />
-                                          <Button mnemonicParsing="false" text="+" />
-                                          <Button mnemonicParsing="false" text="-" />
-                                          <Button mnemonicParsing="false" text="50%" />
-                                          <Button mnemonicParsing="false" text="Cap" />
+                                          <Button mnemonicParsing="false" onAction="#Ftraining4PlusButtonClick" text="+" />
+                                          <Button mnemonicParsing="false" onAction="#Ftraining4MinusButtonClick" text="-" />
+                                          <Button mnemonicParsing="false" onAction="#FfiftyPercent4ButtonClick" text="50%" />
+                                          <Button mnemonicParsing="false" onAction="#Ftraining4CapButtonClick" text="Cap" />
                                           <Label fx:id="ftrain4Count" prefHeight="31.0" prefWidth="88.0" styleClass="LabelTraining" text="0">
                                              <HBox.margin>
                                                 <Insets left="5.0" />
@@ -162,10 +162,10 @@
                                              </HBox.margin>
                                           </Label>
                                           <Pane prefHeight="31.0" prefWidth="5.0" />
-                                          <Button mnemonicParsing="false" text="+" />
-                                          <Button mnemonicParsing="false" text="-" />
-                                          <Button mnemonicParsing="false" text="50%" />
-                                          <Button mnemonicParsing="false" text="Cap" />
+                                          <Button mnemonicParsing="false" onAction="#Ftraining5PlusButtonClick" text="+" />
+                                          <Button mnemonicParsing="false" onAction="#Ftraining5MinusButtonClick" text="-" />
+                                          <Button mnemonicParsing="false" onAction="#FfiftyPercent5ButtonClick" text="50%" />
+                                          <Button mnemonicParsing="false" onAction="#Ftraining5CapButtonClick" text="Cap" />
                                           <Label fx:id="ftrain5Count" prefHeight="31.0" prefWidth="88.0" styleClass="LabelTraining" text="0">
                                              <HBox.margin>
                                                 <Insets left="5.0" />
@@ -187,10 +187,10 @@
                                              </HBox.margin>
                                           </Label>
                                           <Pane prefHeight="31.0" prefWidth="5.0" />
-                                          <Button mnemonicParsing="false" text="+" />
-                                          <Button mnemonicParsing="false" text="-" />
-                                          <Button mnemonicParsing="false" text="50%" />
-                                          <Button mnemonicParsing="false" text="Cap" />
+                                          <Button mnemonicParsing="false" onAction="#Ftraining6PlusButtonClick" text="+" />
+                                          <Button mnemonicParsing="false" onAction="#Ftraining6MinusButtonClick" text="-" />
+                                          <Button mnemonicParsing="false" onAction="#FfiftyPercent6ButtonClick" text="50%" />
+                                          <Button mnemonicParsing="false" onAction="#Ftraining6CapButtonClick" text="Cap" />
                                           <Label fx:id="ftrain6Count" prefHeight="31.0" prefWidth="88.0" styleClass="LabelTraining" text="0">
                                              <HBox.margin>
                                                 <Insets left="5.0" />
@@ -322,7 +322,7 @@
                                           </Label>
                                           <Pane prefHeight="31.0" prefWidth="5.0" />
                                           <Button mnemonicParsing="false" onAction="#Atraining5PlusButtonClick" text="+" />
-                                          <Button mnemonicParsing="false" onAction="#Atraining4MinusButtonClick" text="-" />
+                                          <Button mnemonicParsing="false" onAction="#Atraining5MinusButtonClick" text="-" />
                                           <Button mnemonicParsing="false" onAction="#AfiftyPercent5ButtonClick" text="50%" />
                                           <Button mnemonicParsing="false" onAction="#Atraining5CapButtonClick" text="Cap" />
                                           <Label fx:id="atrain5Count" prefHeight="31.0" prefWidth="88.0" styleClass="LabelTraining" text="0">
@@ -420,43 +420,123 @@
                                       <content>
                                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #C5E4AF;">
                                              <children>
-                                                <VBox layoutX="35.0" layoutY="24.0" prefHeight="225.0" prefWidth="200.0">
+                                                <HBox layoutX="30.0" layoutY="25.0" prefHeight="216.0" prefWidth="901.0">
                                                    <children>
-                                                      <VBox prefHeight="216.0" prefWidth="180.0">
+                                                      <VBox prefHeight="225.0" prefWidth="160.0">
                                                          <children>
-                                                            <StackPane styleClass="StackPaneArcherWrapper">
+                                                            <VBox prefHeight="216.0" prefWidth="180.0">
                                                                <children>
-                                                                  <Label style="-fx-font-weight: bold;" text="Archer Training Speed">
-                                                                     <font>
-                                                                        <Font size="18.0" />
-                                                                     </font>
-                                                                  </Label>
-                                                               </children>
-                                                            </StackPane>
-                                                            <Pane prefHeight="200.0" prefWidth="200.0" />
-                                                            <StackPane styleClass="StackPaneArcherSubWrapper">
-                                                               <children>
-                                                                  <Label fx:id="archerTrainingCurrentSpeed" alignment="CENTER" prefHeight="21.0" prefWidth="186.0" text="Current Speed:    " />
-                                                               </children>
-                                                            </StackPane>
-                                                            <Pane prefHeight="200.0" prefWidth="200.0" />
-                                                            <StackPane>
-                                                               <children>
-                                                                  <VBox prefHeight="200.0" prefWidth="100.0">
+                                                                  <StackPane styleClass="StackPaneArcherWrapper">
                                                                      <children>
-                                                                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#archerTrainingSpeedButton1" prefHeight="31.0" prefWidth="217.0" styleClass="ButtonArcherColor" text="+0.1 - 1 SP" />
-                                                                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#archerTrainingSpeedButton2" prefHeight="31.0" prefWidth="219.0" styleClass="ButtonArcherColor" text="+1 - 10 SP" />
-                                                                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#archerTrainingSpeedButton3" prefHeight="31.0" prefWidth="218.0" styleClass="ButtonArcherColor" text="+5 - 50 SP" />
-                                                                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#archerTrainingSpeedButton4" prefHeight="31.0" prefWidth="228.0" styleClass="ButtonArcherColor" text="+10 - 100 SP" />
-                                                                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#archerTrainingSpeedButton5" prefHeight="31.0" prefWidth="247.0" styleClass="ButtonArcherColor" text="+100 - 1,000 SP" />
+                                                                        <Label style="-fx-font-weight: bold;" text="Training Speed">
+                                                                           <font>
+                                                                              <Font size="18.0" />
+                                                                           </font>
+                                                                        </Label>
                                                                      </children>
-                                                                  </VBox>
+                                                                  </StackPane>
+                                                                  <Pane prefHeight="200.0" prefWidth="200.0" />
+                                                                  <StackPane styleClass="StackPaneArcherSubWrapper">
+                                                                     <children>
+                                                                        <Label fx:id="archerTrainingCurrentSpeed" alignment="CENTER" prefHeight="21.0" prefWidth="186.0" text="Current Speed:    " />
+                                                                     </children>
+                                                                  </StackPane>
+                                                                  <Pane prefHeight="200.0" prefWidth="200.0" />
+                                                                  <StackPane>
+                                                                     <children>
+                                                                        <VBox prefHeight="200.0" prefWidth="100.0">
+                                                                           <children>
+                                                                              <Button alignment="CENTER" mnemonicParsing="false" onAction="#archerTrainingSpeedButton1" prefHeight="31.0" prefWidth="217.0" styleClass="ButtonArcherColor" text="+0.1 - 1 SP" />
+                                                                              <Button alignment="CENTER" mnemonicParsing="false" onAction="#archerTrainingSpeedButton2" prefHeight="31.0" prefWidth="219.0" styleClass="ButtonArcherColor" text="+1 - 10 SP" />
+                                                                              <Button alignment="CENTER" mnemonicParsing="false" onAction="#archerTrainingSpeedButton3" prefHeight="31.0" prefWidth="218.0" styleClass="ButtonArcherColor" text="+5 - 50 SP" />
+                                                                              <Button alignment="CENTER" mnemonicParsing="false" onAction="#archerTrainingSpeedButton4" prefHeight="31.0" prefWidth="228.0" styleClass="ButtonArcherColor" text="+10 - 100 SP" />
+                                                                              <Button alignment="CENTER" mnemonicParsing="false" onAction="#archerTrainingSpeedButton5" prefHeight="31.0" prefWidth="247.0" styleClass="ButtonArcherColor" text="+100 - 1,000 SP" />
+                                                                           </children>
+                                                                        </VBox>
+                                                                     </children>
+                                                                  </StackPane>
                                                                </children>
-                                                            </StackPane>
+                                                            </VBox>
+                                                         </children>
+                                                      </VBox>
+                                                      <Pane prefHeight="216.0" prefWidth="42.0" />
+                                                      <VBox prefHeight="225.0" prefWidth="160.0">
+                                                         <children>
+                                                            <VBox prefHeight="216.0" prefWidth="180.0">
+                                                               <children>
+                                                                  <StackPane styleClass="StackPaneArcherWrapper">
+                                                                     <children>
+                                                                        <Label style="-fx-font-weight: bold;" text="Training Count">
+                                                                           <font>
+                                                                              <Font size="18.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                     </children>
+                                                                  </StackPane>
+                                                                  <Pane prefHeight="200.0" prefWidth="200.0" />
+                                                                  <StackPane styleClass="StackPaneArcherSubWrapper">
+                                                                     <children>
+                                                                        <Label fx:id="archerTrainingCurrentCount" alignment="CENTER" prefHeight="21.0" prefWidth="186.0" text="Current Count:    " />
+                                                                     </children>
+                                                                  </StackPane>
+                                                                  <Pane prefHeight="200.0" prefWidth="200.0" />
+                                                                  <StackPane>
+                                                                     <children>
+                                                                        <VBox prefHeight="200.0" prefWidth="100.0">
+                                                                           <children>
+                                                                              <Button alignment="CENTER" mnemonicParsing="false" onAction="#archerTrainingPowerButton1" prefHeight="31.0" prefWidth="217.0" styleClass="ButtonArcherColor" text="+1 - 100 SP" />
+                                                                              <Button alignment="CENTER" mnemonicParsing="false" onAction="#archerTrainingPowerButton2" prefHeight="31.0" prefWidth="219.0" styleClass="ButtonArcherColor" text="+5 - 500 SP" />
+                                                                              <Button alignment="CENTER" mnemonicParsing="false" onAction="#archerTrainingPowerButton3" prefHeight="31.0" prefWidth="218.0" styleClass="ButtonArcherColor" text="+10 - 1,000 SP" />
+                                                                              <Button alignment="CENTER" mnemonicParsing="false" onAction="#archerTrainingPowerButton4" prefHeight="31.0" prefWidth="228.0" styleClass="ButtonArcherColor" text="+20 - 2,000 SP" />
+                                                                              <Button alignment="CENTER" mnemonicParsing="false" onAction="#archerTrainingPowerButton5" prefHeight="31.0" prefWidth="247.0" styleClass="ButtonArcherColor" text="+50 - 5,000 SP" />
+                                                                           </children>
+                                                                        </VBox>
+                                                                     </children>
+                                                                  </StackPane>
+                                                               </children>
+                                                            </VBox>
+                                                         </children>
+                                                      </VBox>
+                                                      <Pane layoutX="170.0" layoutY="10.0" prefHeight="216.0" prefWidth="42.0" />
+                                                      <VBox layoutX="212.0" layoutY="10.0" prefHeight="225.0" prefWidth="160.0">
+                                                         <children>
+                                                            <VBox prefHeight="216.0" prefWidth="180.0">
+                                                               <children>
+                                                                  <StackPane styleClass="StackPaneArcherWrapper">
+                                                                     <children>
+                                                                        <Label style="-fx-font-weight: bold;" text="Attack Power">
+                                                                           <font>
+                                                                              <Font size="18.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                     </children>
+                                                                  </StackPane>
+                                                                  <Pane prefHeight="200.0" prefWidth="200.0" />
+                                                                  <StackPane styleClass="StackPaneArcherSubWrapper">
+                                                                     <children>
+                                                                        <Label fx:id="archerTrainingCurrentAttack" alignment="CENTER" prefHeight="21.0" prefWidth="186.0" text="Current Attack:    " />
+                                                                     </children>
+                                                                  </StackPane>
+                                                                  <Pane prefHeight="200.0" prefWidth="200.0" />
+                                                                  <StackPane>
+                                                                     <children>
+                                                                        <VBox prefHeight="200.0" prefWidth="100.0">
+                                                                           <children>
+                                                                              <Button alignment="CENTER" mnemonicParsing="false" onAction="#archerTrainingAttackButton1" prefHeight="31.0" prefWidth="217.0" styleClass="ButtonArcherColor" text="+.1 - 10 SP" />
+                                                                              <Button alignment="CENTER" mnemonicParsing="false" onAction="#archerTrainingAttackButton2" prefHeight="31.0" prefWidth="219.0" styleClass="ButtonArcherColor" text="+.5 - 50 SP" />
+                                                                              <Button alignment="CENTER" mnemonicParsing="false" onAction="#archerTrainingAttackButton3" prefHeight="31.0" prefWidth="218.0" styleClass="ButtonArcherColor" text="+1 - 100 SP" />
+                                                                              <Button alignment="CENTER" mnemonicParsing="false" onAction="#archerTrainingAttackButton4" prefHeight="31.0" prefWidth="228.0" styleClass="ButtonArcherColor" text="+2 - 200 SP" />
+                                                                              <Button alignment="CENTER" mnemonicParsing="false" onAction="#archerTrainingAttackButton5" prefHeight="31.0" prefWidth="247.0" styleClass="ButtonArcherColor" text="+5 - 500 SP" />
+                                                                           </children>
+                                                                        </VBox>
+                                                                     </children>
+                                                                  </StackPane>
+                                                               </children>
+                                                            </VBox>
                                                          </children>
                                                       </VBox>
                                                    </children>
-                                                </VBox>
+                                                </HBox>
                                              </children>
                                           </AnchorPane>
                                       </content>
@@ -1039,7 +1119,7 @@
                                           <ImageView fitHeight="60.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true" />
                                        </children>
                                     </StackPane>
-                                    <StackPane layoutX="29.0" layoutY="48.0" prefHeight="60.0" prefWidth="79.0" styleClass="StackPane" stylesheets="@Layout.css">
+                                    <StackPane layoutX="32.0" layoutY="17.0" prefHeight="60.0" prefWidth="79.0" styleClass="StackPane" stylesheets="@Layout.css">
                                        <children>
                                           <Label text="Accessory" />
                                           <ImageView fitHeight="60.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true" />
@@ -1051,12 +1131,40 @@
                                           <ImageView fitHeight="60.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true" />
                                        </children>
                                     </StackPane>
+                                    <StackPane layoutX="32.0" layoutY="85.0" prefHeight="60.0" prefWidth="79.0" styleClass="StackPane" stylesheets="@Layout.css">
+                                       <children>
+                                          <Label text="Accessory" />
+                                          <ImageView fitHeight="60.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true" />
+                                       </children>
+                                    </StackPane>
+                                    <StackPane layoutX="32.0" layoutY="153.0" prefHeight="60.0" prefWidth="79.0" styleClass="StackPane" stylesheets="@Layout.css">
+                                       <children>
+                                          <Label text="Accessory" />
+                                          <ImageView fitHeight="60.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true" />
+                                       </children>
+                                    </StackPane>
+                                    <StackPane layoutX="32.0" layoutY="221.0" prefHeight="60.0" prefWidth="79.0" styleClass="StackPane" stylesheets="@Layout.css">
+                                       <children>
+                                          <Label text="Accessory" />
+                                          <ImageView fitHeight="60.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true" />
+                                       </children>
+                                    </StackPane>
                                  </children>
                               </Pane>
                            </children>
                         </StackPane>
                      </children>
                   </AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="Adventure">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              </content>
+            </Tab>
+            <Tab text="Tournaments">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
               </content>
             </Tab>
         </tabs>

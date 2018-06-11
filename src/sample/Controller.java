@@ -90,6 +90,7 @@ public class Controller implements Initializable {
     public TextField countQuant;
 
 
+
     int siegePoints = 1000;
     int rebirthSiegePoints = 0;
 
@@ -135,6 +136,7 @@ public class Controller implements Initializable {
     ArcherTraining AT = new ArcherTraining();
     Siege siege = new Siege();
     NumberConverter NC = new NumberConverter();
+    Battle battle = new Battle();
 
 
     long gameTicker = 0;
@@ -163,7 +165,6 @@ public class Controller implements Initializable {
             if(aBarTicker >=100){
                 aBarTicker = aBarTicker-100;
                 if(aBarTicker>=100){aBarTicker = 0;}
-                System.out.println(aBarTicker);
                 archerCount += aPower;
             }
             //Fighter bar controls
@@ -360,7 +361,6 @@ public class Controller implements Initializable {
             for (double i = FT.getTraining1Cap();  i > fighterCount+Integer.parseInt(FT.getTraining1Count()); i = FT.getTraining1Cap() / (float)capCounter) {
                 capCounter++;
             }
-            System.out.println(capCounter);
             if(Integer.parseInt(FT.getTraining1Count()) == (int)Math.ceil(FT.getTraining1Cap()/capCounter)){
 
             }else {
@@ -389,7 +389,6 @@ public class Controller implements Initializable {
             for (double i = FT.getTraining2Cap();  i > fighterCount+Integer.parseInt(FT.getTraining2Count()); i = FT.getTraining2Cap() / (float)capCounter) {
                 capCounter++;
             }
-            System.out.println(capCounter);
             if(Integer.parseInt(FT.getTraining2Count()) == (int)Math.ceil(FT.getTraining2Cap()/capCounter)){
 
             }else {
@@ -418,7 +417,7 @@ public class Controller implements Initializable {
             for (double i = FT.getTraining3Cap();  i > fighterCount+Integer.parseInt(FT.getTraining3Count()); i = FT.getTraining3Cap() / (float)capCounter) {
                 capCounter++;
             }
-            System.out.println(capCounter);
+
             if(Integer.parseInt(FT.getTraining3Count()) == (int)Math.ceil(FT.getTraining3Cap()/capCounter)){
 
             }else {
@@ -447,7 +446,6 @@ public class Controller implements Initializable {
             for (double i = FT.getTraining4Cap();  i > fighterCount+Integer.parseInt(FT.getTraining4Count()); i = FT.getTraining4Cap() / (float)capCounter) {
                 capCounter++;
             }
-            System.out.println(capCounter);
             if(Integer.parseInt(FT.getTraining4Count()) == (int)Math.ceil(FT.getTraining4Cap()/capCounter)){
 
             }else {
@@ -476,7 +474,6 @@ public class Controller implements Initializable {
             for (double i = FT.getTraining5Cap();  i > fighterCount+Integer.parseInt(FT.getTraining5Count()); i = FT.getTraining5Cap() / (float)capCounter) {
                 capCounter++;
             }
-            System.out.println(capCounter);
             if(Integer.parseInt(FT.getTraining5Count()) == (int)Math.ceil(FT.getTraining5Cap()/capCounter)){
 
             }else {
@@ -505,7 +502,6 @@ public class Controller implements Initializable {
             for (double i = FT.getTraining6Cap();  i > fighterCount+Integer.parseInt(FT.getTraining6Count()); i = FT.getTraining6Cap() / (float)capCounter) {
                 capCounter++;
             }
-            System.out.println(capCounter);
             if(Integer.parseInt(FT.getTraining6Count()) == (int)Math.ceil(FT.getTraining6Cap()/capCounter)){
 
             }else {
@@ -533,7 +529,6 @@ public class Controller implements Initializable {
             for (double i = AT.getTraining1Cap();  i > archerCount+Integer.parseInt(AT.getTraining1Count()); i = AT.getTraining1Cap() / (float)capCounter) {
                 capCounter++;
             }
-            System.out.println(capCounter);
             if(Integer.parseInt(AT.getTraining1Count()) == (int)Math.ceil(AT.getTraining1Cap()/capCounter)){
 
             }else {
@@ -562,7 +557,6 @@ public class Controller implements Initializable {
             for (double i = AT.getTraining2Cap();  i > archerCount+Integer.parseInt(AT.getTraining2Count()); i = AT.getTraining2Cap() / (float)capCounter) {
                 capCounter++;
             }
-            System.out.println(capCounter);
             if(Integer.parseInt(AT.getTraining2Count()) == (int)Math.ceil(AT.getTraining2Cap()/capCounter)){
 
             }else {
@@ -591,7 +585,6 @@ public class Controller implements Initializable {
             for (double i = AT.getTraining3Cap();  i > archerCount+Integer.parseInt(AT.getTraining3Count()); i = AT.getTraining3Cap() / (float)capCounter) {
                 capCounter++;
             }
-            System.out.println(capCounter);
             if(Integer.parseInt(AT.getTraining3Count()) == (int)Math.ceil(AT.getTraining3Cap()/capCounter)){
 
             }else {
@@ -620,7 +613,6 @@ public class Controller implements Initializable {
             for (double i = AT.getTraining4Cap();  i > archerCount+Integer.parseInt(AT.getTraining4Count()); i = AT.getTraining4Cap() / (float)capCounter) {
                 capCounter++;
             }
-            System.out.println(capCounter);
             if(Integer.parseInt(AT.getTraining4Count()) == (int)Math.ceil(AT.getTraining4Cap()/capCounter)){
 
             }else {
@@ -649,7 +641,6 @@ public class Controller implements Initializable {
             for (double i = AT.getTraining5Cap();  i > archerCount+Integer.parseInt(AT.getTraining5Count()); i = AT.getTraining5Cap() / (float)capCounter) {
                 capCounter++;
             }
-            System.out.println(capCounter);
             if(Integer.parseInt(AT.getTraining5Count()) == (int)Math.ceil(AT.getTraining5Cap()/capCounter)){
 
             }else {
@@ -678,7 +669,6 @@ public class Controller implements Initializable {
             for (double i = AT.getTraining6Cap();  i > archerCount+Integer.parseInt(AT.getTraining6Count()); i = AT.getTraining6Cap() / (float)capCounter) {
                 capCounter++;
             }
-            System.out.println(capCounter);
             if(Integer.parseInt(AT.getTraining6Count()) == (int)Math.ceil(AT.getTraining6Cap()/capCounter)){
 
             }else {
@@ -779,5 +769,9 @@ public class Controller implements Initializable {
             archerAttackPower += 5;
             siegePoints -= 500;
         }
+    }
+
+    public void TestButtonClicked(){
+        battle.battleRound();
     }
 }

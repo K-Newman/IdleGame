@@ -54,3 +54,24 @@
     -fx-background-insets: 0,1,2;
     -fx-background-radius: 3,2,1;
 }
+
+.ButtonFighterColor{
+    -fx-background-color:
+        #bdd2fa,
+        linear-gradient(#FFFFFF, #1b4aa1),
+        linear-gradient(#bdd2fa 0%, #8eb2f6 49%, #8eb2f6 50%, #80a9f5 100%);
+    -fx-background-insets: 0,1,2;
+    -fx-background-radius: 3,2,1;
+}
+
+.StackPaneFighterWrapper{
+    -fx-border-color: grey;
+    -fx-background-color: rgb(0, 130, 255, .7);
+    -fx-background-opacity: .5;
+}
+
+.StackPaneFighterSubWrapper{
+    -fx-border-color: grey;
+    -fx-background-color: rgb(0, 130, 255, .3);
+    -fx-background-opacity: .5;
+}

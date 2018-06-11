@@ -6,14 +6,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-/* TODO Add mages
- * TODO Add things to spend rebirth points on
- * TODO Add "side scroller" champion screen
- * TODO equipment / monsters / drop tables
- * TODO Work on aesthetics
- * TODO Extend fighter training to the other 5 lines
- * TODO Add archer training
- * TODO Figure out the cap button*/
 
 public class Main extends Application {
 

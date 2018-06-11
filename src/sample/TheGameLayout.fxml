@@ -6,6 +6,7 @@
 <?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -415,7 +416,130 @@
                            <children>
                               <TabPane prefHeight="383.0" prefWidth="971.0" tabClosingPolicy="UNAVAILABLE">
                                 <tabs>
-                                  <Tab text="Fighter" />
+                                  <Tab text="Fighter">
+                                       <content>
+                                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #DEE9FC;">
+                                             <children>
+                                                <HBox layoutX="30.0" layoutY="25.0" prefHeight="216.0" prefWidth="901.0">
+                                                   <children>
+                                                      <VBox prefHeight="225.0" prefWidth="160.0">
+                                                         <children>
+                                                            <VBox prefHeight="216.0" prefWidth="180.0">
+                                                               <children>
+                                                                  <StackPane styleClass="StackPaneFighterWrapper">
+                                                                     <children>
+                                                                        <Label style="-fx-font-weight: bold;" text="Training Speed">
+                                                                           <font>
+                                                                              <Font size="18.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                     </children>
+                                                                  </StackPane>
+                                                                  <Pane prefHeight="200.0" prefWidth="200.0" />
+                                                                  <StackPane styleClass="StackPaneFighterSubWrapper">
+                                                                     <children>
+                                                                        <Label fx:id="archerTrainingCurrentSpeed" alignment="CENTER" prefHeight="21.0" prefWidth="186.0" text="Current Speed:    " />
+                                                                     </children>
+                                                                  </StackPane>
+                                                                  <Pane prefHeight="200.0" prefWidth="200.0" />
+                                                                  <StackPane>
+                                                                     <children>
+                                                                        <VBox prefHeight="200.0" prefWidth="100.0">
+                                                                           <children>
+                                                                              <Button alignment="CENTER" mnemonicParsing="false" onAction="#archerTrainingSpeedButton1" prefHeight="31.0" prefWidth="217.0" styleClass="ButtonFighterColor" text="+0.1 - 1 SP" />
+                                                                              <Button alignment="CENTER" mnemonicParsing="false" onAction="#archerTrainingSpeedButton2" prefHeight="31.0" prefWidth="219.0" styleClass="ButtonFighterColor" text="+1 - 10 SP" />
+                                                                              <Button alignment="CENTER" mnemonicParsing="false" onAction="#archerTrainingSpeedButton3" prefHeight="31.0" prefWidth="218.0" styleClass="ButtonFighterColor" text="+5 - 50 SP" />
+                                                                              <Button alignment="CENTER" mnemonicParsing="false" onAction="#archerTrainingSpeedButton4" prefHeight="31.0" prefWidth="228.0" styleClass="ButtonFighterColor" text="+10 - 100 SP" />
+                                                                              <Button alignment="CENTER" mnemonicParsing="false" onAction="#archerTrainingSpeedButton5" prefHeight="31.0" prefWidth="247.0" styleClass="ButtonFighterColor" text="+100 - 1,000 SP" />
+                                                                           </children>
+                                                                        </VBox>
+                                                                     </children>
+                                                                  </StackPane>
+                                                               </children>
+                                                            </VBox>
+                                                         </children>
+                                                      </VBox>
+                                                      <Pane prefHeight="216.0" prefWidth="42.0" />
+                                                      <VBox prefHeight="225.0" prefWidth="160.0">
+                                                         <children>
+                                                            <VBox prefHeight="216.0" prefWidth="180.0">
+                                                               <children>
+                                                                  <StackPane styleClass="StackPaneFighterWrapper">
+                                                                     <children>
+                                                                        <Label style="-fx-font-weight: bold;" text="Training Count">
+                                                                           <font>
+                                                                              <Font size="18.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                     </children>
+                                                                  </StackPane>
+                                                                  <Pane prefHeight="200.0" prefWidth="200.0" />
+                                                                  <StackPane styleClass="StackPaneFighterSubWrapper">
+                                                                     <children>
+                                                                        <Label fx:id="archerTrainingCurrentCount" alignment="CENTER" prefHeight="21.0" prefWidth="186.0" text="Current Count:    " />
+                                                                     </children>
+                                                                  </StackPane>
+                                                                  <Pane prefHeight="200.0" prefWidth="200.0" />
+                                                                  <StackPane>
+                                                                     <children>
+                                                                        <VBox prefHeight="200.0" prefWidth="100.0">
+                                                                           <children>
+                                                                              <Button alignment="CENTER" mnemonicParsing="false" onAction="#archerTrainingPowerButton1" prefHeight="31.0" prefWidth="217.0" styleClass="ButtonFighterColor" text="+1 - 100 SP" />
+                                                                              <Button alignment="CENTER" mnemonicParsing="false" onAction="#archerTrainingPowerButton2" prefHeight="31.0" prefWidth="219.0" styleClass="ButtonFighterColor" text="+5 - 500 SP" />
+                                                                              <Button alignment="CENTER" mnemonicParsing="false" onAction="#archerTrainingPowerButton3" prefHeight="31.0" prefWidth="218.0" styleClass="ButtonFighterColor" text="+10 - 1,000 SP" />
+                                                                              <Button alignment="CENTER" mnemonicParsing="false" onAction="#archerTrainingPowerButton4" prefHeight="31.0" prefWidth="228.0" styleClass="ButtonFighterColor" text="+20 - 2,000 SP" />
+                                                                              <Button alignment="CENTER" mnemonicParsing="false" onAction="#archerTrainingPowerButton5" prefHeight="31.0" prefWidth="247.0" styleClass="ButtonFighterColor" text="+50 - 5,000 SP" />
+                                                                           </children>
+                                                                        </VBox>
+                                                                     </children>
+                                                                  </StackPane>
+                                                               </children>
+                                                            </VBox>
+                                                         </children>
+                                                      </VBox>
+                                                      <Pane layoutX="170.0" layoutY="10.0" prefHeight="216.0" prefWidth="42.0" />
+                                                      <VBox layoutX="212.0" layoutY="10.0" prefHeight="225.0" prefWidth="160.0">
+                                                         <children>
+                                                            <VBox prefHeight="216.0" prefWidth="180.0">
+                                                               <children>
+                                                                  <StackPane styleClass="StackPaneFighterWrapper">
+                                                                     <children>
+                                                                        <Label style="-fx-font-weight: bold;" text="Attack Power">
+                                                                           <font>
+                                                                              <Font size="18.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                     </children>
+                                                                  </StackPane>
+                                                                  <Pane prefHeight="200.0" prefWidth="200.0" />
+                                                                  <StackPane styleClass="StackPaneFighterSubWrapper">
+                                                                     <children>
+                                                                        <Label fx:id="archerTrainingCurrentAttack" alignment="CENTER" prefHeight="21.0" prefWidth="186.0" text="Current Attack:    " />
+                                                                     </children>
+                                                                  </StackPane>
+                                                                  <Pane prefHeight="200.0" prefWidth="200.0" />
+                                                                  <StackPane>
+                                                                     <children>
+                                                                        <VBox prefHeight="200.0" prefWidth="100.0">
+                                                                           <children>
+                                                                              <Button alignment="CENTER" mnemonicParsing="false" onAction="#archerTrainingAttackButton1" prefHeight="31.0" prefWidth="217.0" styleClass="ButtonFighterColor" text="+.1 - 10 SP" />
+                                                                              <Button alignment="CENTER" mnemonicParsing="false" onAction="#archerTrainingAttackButton2" prefHeight="31.0" prefWidth="219.0" styleClass="ButtonFighterColor" text="+.5 - 50 SP" />
+                                                                              <Button alignment="CENTER" mnemonicParsing="false" onAction="#archerTrainingAttackButton3" prefHeight="31.0" prefWidth="218.0" styleClass="ButtonFighterColor" text="+1 - 100 SP" />
+                                                                              <Button alignment="CENTER" mnemonicParsing="false" onAction="#archerTrainingAttackButton4" prefHeight="31.0" prefWidth="228.0" styleClass="ButtonFighterColor" text="+2 - 200 SP" />
+                                                                              <Button alignment="CENTER" mnemonicParsing="false" onAction="#archerTrainingAttackButton5" prefHeight="31.0" prefWidth="247.0" styleClass="ButtonFighterColor" text="+5 - 500 SP" />
+                                                                           </children>
+                                                                        </VBox>
+                                                                     </children>
+                                                                  </StackPane>
+                                                               </children>
+                                                            </VBox>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                          </AnchorPane>
+                                       </content></Tab>
                                     <Tab text="Archer">
                                       <content>
                                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #C5E4AF;">
@@ -1159,7 +1283,39 @@
             </Tab>
             <Tab text="Adventure">
               <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TextArea layoutX="19.0" layoutY="394.0" prefHeight="200.0" prefWidth="962.0" />
+                        <VBox layoutX="19.0" layoutY="21.0" prefHeight="355.0" prefWidth="370.0">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="21.0" prefWidth="376.0" text="Your Champion" textAlignment="CENTER">
+                                 <font>
+                                    <Font name="System Bold" size="29.0" />
+                                 </font>
+                              </Label>
+                              <HBox prefHeight="21.0" prefWidth="370.0">
+                                 <children>
+                                    <Label alignment="TOP_RIGHT" prefHeight="21.0" prefWidth="196.0" text="Attack: " />
+                                    <Label fx:id="championAttackLabel" prefHeight="21.0" prefWidth="238.0" text="0" />
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="10.0" layoutY="53.0" prefHeight="21.0" prefWidth="370.0">
+                                 <children>
+                                    <Label alignment="TOP_RIGHT" prefHeight="21.0" prefWidth="196.0" text="Defense: " />
+                                    <Label fx:id="championDefenseLabel" prefHeight="21.0" prefWidth="238.0" text="0" />
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="10.0" layoutY="74.0" prefHeight="21.0" prefWidth="370.0">
+                                 <children>
+                                    <Label alignment="TOP_RIGHT" prefHeight="21.0" prefWidth="196.0" text="Health: " />
+                                    <Label fx:id="championHealthLabel" prefHeight="21.0" prefWidth="238.0" text="0" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <VBox layoutX="601.0" layoutY="21.0" prefHeight="354.0" prefWidth="380.0" />
+                        <Button fx:id="TestButton" layoutX="500.0" layoutY="168.0" mnemonicParsing="false" onAction="#TestButtonClicked" text="Button" />
+                     </children></AnchorPane>
               </content>
             </Tab>
             <Tab text="Tournaments">

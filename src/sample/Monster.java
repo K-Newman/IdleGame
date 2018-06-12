@@ -10,22 +10,24 @@ public class Monster {
     int strength = 0;
     int dexterity = 0;
     int intelligence = 0;
-    int initiative = 0;
+    double initiative = 0;
     int baseHP = 0;
+    int exp;
     String zone = "";
 
 
-    public Monster(String name, int constitution, int strength, int dexterity, int intelligence,String zone){
+    public Monster(String name, int constitution, int strength, int dexterity, int intelligence, int exp, String zone){
         this.name = name;
         constitution = constitution;
         strength = strength;
         dexterity = dexterity;
         intelligence = intelligence;
-        initiative = intelligence * 15 + dexterity * 15;
+        initiative = (float)500/dexterity;
         hp = (int)Math.floor(constitution * 1.5) + (int)Math.floor(strength * .5);
         attack = (int)Math.floor(strength * 1.5) + (int)Math.floor(dexterity*.5);
         zone = zone;
         baseHP = hp;
+        this.exp=exp;
     }
 
     public String getMonsterName(){
@@ -43,10 +45,13 @@ public class Monster {
         hp = hp - damage;
     }
 
-    public int getInitiative(){
+    public double getInitiative(){
         return initiative;
     }
     public void reset(){
         hp=baseHP;
     }
+
+    public int getExp(){return exp;}
+
 }

@@ -6,8 +6,11 @@ import javafx.animation.Timeline;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressIndicator;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextFlow;
 import javafx.util.Duration;
 
 import java.net.URL;
@@ -88,6 +91,17 @@ public class Controller implements Initializable {
     public ImageView I30,I31,I32,I33,I34,I35,I36,I37,I38,I39,I3x;
 
     public TextField countQuant;
+
+    public TextArea adventureTextArea;
+    public Label championLevelLabel;
+    public Label championStrengthLabel;
+    public Label championConstitutionLabel;
+    public Label championDexterityLabel;
+    public Label championIntelligenceLabel;
+    public Label championHPLabel;
+    public Label championRegenLabel;
+    public Label championInitiativeLabel;
+    public Label championExperienceLabel;
 
 
 
@@ -293,6 +307,19 @@ public class Controller implements Initializable {
             archerTrainingCurrentCount.setText("Current Count: " + aPower);
             archerTrainingCurrentAttack.setText("Current Attack: " + (double)Math.round(archerAttackPower*10)/10);
             siegePointsLabel.setText(siegePoints + "");
+            if(battle.changedStatus) {
+                adventureTextArea.setText(battle.getTextOutput());
+                adventureTextArea.appendText("");
+                championStrengthLabel.setText(battle.getStrength());
+                championConstitutionLabel.setText(battle.getConstitution());
+                championDexterityLabel.setText(battle.getDexterity());
+                championInitiativeLabel.setText(battle.getInitiative());
+                championIntelligenceLabel.setText(battle.getIntelligence());
+                championHPLabel.setText(battle.getHP());
+                championRegenLabel.setText(battle.getRegen());
+                championLevelLabel.setText(battle.getLevel());
+                championExperienceLabel.setText(battle.getExperience());
+            }
 
         }));
         timeline.setCycleCount(Animation.INDEFINITE);

@@ -136,9 +136,10 @@ public class Controller implements Initializable {
     int mTickPower = 1;
     boolean mageUnlocked = false;
 
-    int siegeCount = 1;
+    int siegeCount = 0;
     boolean siegeBuilt = false;
-    double morale=1;
+    double morale=1000;
+    int totalSiegeCount = 0;
 
     long yourTP = 0;
     long yourAttackPower = 0;
@@ -207,6 +208,8 @@ public class Controller implements Initializable {
             //Siege logic
             //Building siege stats
             if(!siegeBuilt) {
+                siegeCount++;
+                totalSiegeCount++;
                 siege.siegeClear();
                 if(siege.getSeigeTotalPower()>999999){
                     siegeAttack.setText("Attack: " +NC.convertToSci(siege.getCurrentSiegeAttack()));
@@ -220,14 +223,17 @@ public class Controller implements Initializable {
 
                 siegeLabel.setText("Siege " + siegeCount);
                 siegeBuilt = siege.getSiegeStatus();
-                archerCap = (int)(1000*(Math.floor(Math.log(siegeCount)/Math.log(2)) + 1));
-                fighterCap = archerCap;
-                siegeCount++;
+                archerCap = (int)(1000*(Math.floor(Math.log(totalSiegeCount)/Math.log(2)) + 1));
+                fighterCap = (int)(1000 * (Math.floor(Math.log(totalSiegeCount)/Math.log(2)) + 1));
+
             }
 
+
             //Determine your attack and def
-            yourAttackPower = archerCount*((int)Math.round(archerAttackPower)+(int)Math.floor(AT.getTotalTrainingCompletes()))+
-                    fighterCount*((int)Math.floor(fighterAttackPower)+(int)Math.floor(FT.getTotalTrainingCompletes()));
+            yourAttackPower = archerCount*((int)Math.round(archerAttackPower)+
+                    (int)Math.floor(AT.getTotalTrainingCompletes()))+
+                    fighterCount*((int)Math.floor(fighterAttackPower)+
+                            (int)Math.floor(FT.getTotalTrainingCompletes()));
             yourDefPower = fighterCount*(10+(int)Math.round(FT.getTotalTrainingCompletes()))+
                     archerCount*(2+(int)Math.floor(AT.getTotalTrainingCompletes()));
             yourTP=yourAttackPower+yourDefPower;
@@ -343,6 +349,10 @@ public class Controller implements Initializable {
         }
     }
 
+    public void siegeButton(){
+
+    }
+
     public void rebirthButton(){
         siegePoints = siegePoints + rebirthSiegePoints;
         rebirthSiegePoints = 0;
@@ -350,6 +360,9 @@ public class Controller implements Initializable {
         siegeBuilt=false;
         AT.rebirthClear();
         FT.rebirthClear();
+        siegeCount = 0;
+        archerCount = 0;
+        fighterCount = 0;
 
     }
 

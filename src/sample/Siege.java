@@ -41,4 +41,8 @@ public class Siege {
         currentSiegeDef=11;
 
     }
+
+    public void castleSiege(){
+
+    }
 }

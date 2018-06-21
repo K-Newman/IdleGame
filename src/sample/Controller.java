@@ -3,18 +3,13 @@ package sample;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.collections.FXCollections;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
-import javafx.scene.control.ProgressIndicator;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
-import javafx.scene.text.Text;
-import javafx.scene.text.TextFlow;
 import javafx.util.Duration;
 
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.concurrent.TimeUnit;
 
@@ -81,6 +76,7 @@ public class Controller implements Initializable {
     public Label yourDefence;
     public Label yourTotalPower;
 
+    public Label MoraleBarText;
 
     public Label siegeLabel;
     public Label rebirthSiegeCount;
@@ -102,6 +98,8 @@ public class Controller implements Initializable {
     public Label championRegenLabel;
     public Label championInitiativeLabel;
     public Label championExperienceLabel;
+
+    public ChoiceBox adventureChoiceBox;
 
 
 
@@ -145,7 +143,7 @@ public class Controller implements Initializable {
     long yourAttackPower = 0;
     long yourDefPower = 0;
 
-
+    int tenSecondTimer = 0;
 
     FighterTraining FT = new FighterTraining();
     ArcherTraining AT = new ArcherTraining();
@@ -165,7 +163,13 @@ public class Controller implements Initializable {
             gameTicker++;
             aGTicker++;
             fGTicker++;
+            tenSecondTimer++;
 
+            //Ten Second Timer
+            if(tenSecondTimer >= 500){
+                tenSecondTimer=0;
+                adventureChoiceBox.setValue(battle.getCurrentZone());
+            }
             getTime(gameTicker);
             campaignTimer.setText("Campaign timer: " + gameTime);
 
@@ -229,7 +233,7 @@ public class Controller implements Initializable {
             }
 
 
-            //Determine your attack and def
+            //Determine your attack and def and morale
             yourAttackPower = archerCount*((int)Math.round(archerAttackPower)+
                     (int)Math.floor(AT.getTotalTrainingCompletes()))+
                     fighterCount*((int)Math.floor(fighterAttackPower)+
@@ -237,6 +241,13 @@ public class Controller implements Initializable {
             yourDefPower = fighterCount*(10+(int)Math.round(FT.getTotalTrainingCompletes()))+
                     archerCount*(2+(int)Math.floor(AT.getTotalTrainingCompletes()));
             yourTP=yourAttackPower+yourDefPower;
+            if(morale>=1000){
+                morale = 1000;
+                moraleBar.setProgress(morale/1000f);
+            } else {
+                morale = morale + 1/(1000-morale);
+                moraleBar.setProgress(morale/1000f);
+            }
 
 
             //Display your troop counts
@@ -248,6 +259,9 @@ public class Controller implements Initializable {
 
             mageCountLabel.setText("Magi: " + mageCount);
             mageBar.setProgress(mBarTicker/100f);
+
+            //Display your morale
+            MoraleBarText.setText("Morale: " + Math.floor(morale));
 
             //Display your siege points
             rebirthSiegeCount.setText("Current Siege Points: " + NC.addCommasInt(rebirthSiegePoints));
@@ -326,6 +340,7 @@ public class Controller implements Initializable {
                 championLevelLabel.setText(battle.getLevel());
                 championExperienceLabel.setText(battle.getExperience());
             }
+            championHPLabel.setText(battle.getHP());
 
         }));
         timeline.setCycleCount(Animation.INDEFINITE);
@@ -337,15 +352,26 @@ public class Controller implements Initializable {
     }
 
     public void theGame() {
+        adventureChoiceBox.setItems(FXCollections.observableArrayList("Silvermere","Forest","Goblin Caves"));
+        adventureChoiceBox.setValue("Silvermere");
         Timeline playTheGame = startTimeline();
         playTheGame.play();
     }
 
     public void attackButton(){
-        if(yourTP > siege.getSeigeTotalPower()*3){
+        if(yourTP > siege.getSeigeTotalPower()*2){
             siege.attackSiege();
             rebirthSiegePoints = rebirthSiegePoints+1;
             siegeBuilt = siege.getSiegeStatus();
+        } else {
+            if(siege.getCurrentSiegeDef()>yourAttackPower & morale > 100) {
+                siege.setCurrentSiegeDef(siege.getCurrentSiegeDef() - yourAttackPower);
+                morale = morale / (double)siege.getCurrentSiegeDef()/siege.getBaseSiegeDef();
+            } else {
+                siege.setCurrentSiegeDef(0);
+                morale = morale + (1000-morale)*.5;
+            }
+
         }
     }
 
@@ -812,6 +838,11 @@ public class Controller implements Initializable {
     }
 
     public void TestButtonClicked(){
+        getChoiceBox();
         battle.battleRound();
+    }
+
+    public void getChoiceBox(){
+        battle.setCurrentZone(adventureChoiceBox.getValue() + "");
     }
 }

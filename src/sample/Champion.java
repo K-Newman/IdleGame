@@ -13,6 +13,7 @@ public class Champion {
     int exp = 0;
     int level = 1;
     int regen;
+    int attacksPerTurn;
 
     public Champion(int constitution, int strength, int dexterity, int intelligence){
         this.constitution = constitution;
@@ -24,6 +25,7 @@ public class Champion {
         maxHP = hp;
         attack = (int)Math.floor(strength * 1.5) + (int)Math.floor(dexterity*.5);
         regen = Math.round(maxHP/6f);
+        attacksPerTurn = (int)Math.floor(dexterity/5);
     }
 
     public int getMaxHP(){return maxHP;}
@@ -60,6 +62,7 @@ public class Champion {
         maxHP = (int)Math.floor(constitution * 1.5) + (int)Math.floor(strength * .5);
         attack = (int)Math.floor(strength * 1.5) + (int)Math.floor(dexterity*.5);
         regen = Math.round(maxHP/6f);
+        attacksPerTurn = (int)Math.floor(dexterity/5);
     }
 
     public void addToHPs(int moreHP){
@@ -77,5 +80,6 @@ public class Champion {
     public int getIntelligence(){return intelligence;}
     public int getLevel(){return level;}
     public int getExperiene(){return exp;}
+    public int getAttacksPerTurn(){return attacksPerTurn;}
 
 }

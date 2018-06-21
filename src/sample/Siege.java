@@ -10,17 +10,21 @@ public class Siege {
     private double siegeDefMulti=1;
     private double siegeTotalPower;
     private boolean siegeStatus=false;
+    private long baseSiegeDef=11;
+    private long baseSiegeAttack=10;
 
     public long getCurrentSiegeAttack(){return currentSiegeAttack;}
 
     public long getCurrentSiegeDef(){return currentSiegeDef;}
 
     public void siegeClear(){
-        nextSiegeAttack = (long)Math.ceil(currentSiegeAttack * 11 * siegeAttackMulti);
-        nextSiegeDef = (long)Math.ceil(currentSiegeDef * 11 * siegeDefMulti);
+        nextSiegeAttack = (long)Math.ceil(baseSiegeAttack * 11 * siegeAttackMulti);
+        nextSiegeDef = (long)Math.ceil(baseSiegeDef * 11 * siegeDefMulti);
         currentSiegeAttack = nextSiegeAttack;
         currentSiegeDef = nextSiegeDef;
         siegeStatus = true;
+        baseSiegeAttack = nextSiegeAttack;
+        baseSiegeDef = nextSiegeDef;
     }
 
     public long getSeigeTotalPower(){
@@ -41,6 +45,17 @@ public class Siege {
         currentSiegeDef=11;
 
     }
+
+    public void setCurrentSiegeAttack(long CSA){
+        currentSiegeAttack = CSA;
+
+    }
+
+    public void setCurrentSiegeDef(long CSD){
+        currentSiegeDef = CSD;
+    }
+
+    public long getBaseSiegeDef(){return baseSiegeDef;}
 
     public void castleSiege(){
 

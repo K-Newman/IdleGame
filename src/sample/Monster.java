@@ -13,7 +13,7 @@ public class Monster {
     double initiative = 0;
     int baseHP = 0;
     int exp;
-    String zone = "";
+    String zone;
 
 
     public Monster(String name, int constitution, int strength, int dexterity, int intelligence, int exp, String zone){
@@ -25,7 +25,7 @@ public class Monster {
         initiative = (float)500/dexterity;
         hp = (int)Math.floor(constitution * 1.5) + (int)Math.floor(strength * .5);
         attack = (int)Math.floor(strength * 1.5) + (int)Math.floor(dexterity*.5);
-        zone = zone;
+        this.zone = zone;
         baseHP = hp;
         this.exp=exp;
     }
@@ -53,5 +53,7 @@ public class Monster {
     }
 
     public int getExp(){return exp;}
+
+    public String getZone(){return zone;}
 
 }
